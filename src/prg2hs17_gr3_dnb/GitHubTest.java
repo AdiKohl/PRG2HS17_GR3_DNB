@@ -13,6 +13,7 @@ public class GitHubTest {
 
     public GitHubTest() {
         System.out.println("TestGit");
+        System.out.println("Hallo");
     }
     
     
