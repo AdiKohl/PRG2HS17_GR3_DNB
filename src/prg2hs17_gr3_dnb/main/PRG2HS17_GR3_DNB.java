@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package prg2hs17_gr3_dnb;
+package prg2hs17_gr3_dnb.main;
 
 /**
  *

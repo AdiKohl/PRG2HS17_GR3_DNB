@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package prg2hs17_gr3_dnb;
+package prg2hs17_gr3_dnb.controller;
 
 /**
  *
  * @author Adi
  */
-public class GitHubTest {
-
-    public GitHubTest() {
-        System.out.println("TestGit");
-        System.out.println("Hallo");
-    }
-    
+public class DnBController {
     
 }
