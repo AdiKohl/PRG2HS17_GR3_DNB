@@ -14,15 +14,19 @@ package prg2hs17_gr3_dnb.model;
 
 public class Tile {
     
-    public enum Owner{
-    VOID, HOST, GUEST
-    }
     
     private Owner borderN;
     private Owner borderE;
     private Owner borderS;
     private Owner borderW;
     private Owner area;
+
+    public Tile() {
+        this.area = VOID;
+        
+    }
+    
+    
     
     
     
