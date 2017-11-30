@@ -11,4 +11,22 @@ package prg2hs17_gr3_dnb.model;
  */
 public class Map {
     
+    int xsize;
+    int ysize;
+    Tile[][] map;
+
+    public Map() {
+        this(3,3);        
+    }
+
+    public Map(int xsize, int ysize) {
+        this.xsize = xsize;
+        this.ysize = ysize;
+        map = new Tile[xsize][ysize];
+    }
+    
+    
+    
+    
+    
 }
