@@ -23,12 +23,12 @@ public class Tile {
     private Owner area;
 
     public Tile() {
-        this.area = Owner.VOID;
+        
         this.borderN = Owner.VOID;
         this.borderE = Owner.VOID;
         this.borderS = Owner.VOID;
         this.borderW = Owner.VOID;
-        
+        this.area = Owner.VOID;
         
     }
 
