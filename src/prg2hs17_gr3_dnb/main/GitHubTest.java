@@ -15,6 +15,7 @@ public class GitHubTest {
         System.out.println("TestGit");
         System.out.println("Hallo");
         System.out.println("De Adi isch de gröscht!");
+        System.out.println("De Lüssiää auuu <3");
     }
     
     
