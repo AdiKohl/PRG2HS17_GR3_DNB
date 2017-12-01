@@ -8,6 +8,8 @@ package prg2hs17_gr3_dnb.view;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -54,13 +56,27 @@ public class MenuFrame extends JFrame{
         panel.add(singleplayer);
         panel.add(multiplayer);
         panel.add(credits);
-        panel.add(quit);       
+        panel.add(quit);  
+        
+        credits.addActionListener((ActionEvent e) -> {
+            creditsPressed();
+        });
         
         
         
         setVisible(true);
         
     }
+    
+    
+   public void creditsPressed() {
+        Credits frame = new Credits();
+        frame.setVisible(true);
+        this.setVisible(false);
+
+    }
+    
+    
     
     
     
