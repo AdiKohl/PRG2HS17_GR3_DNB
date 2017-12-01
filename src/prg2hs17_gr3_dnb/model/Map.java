@@ -22,7 +22,14 @@ public class Map {
     public Map(int xsize, int ysize) {
         this.xsize = xsize;
         this.ysize = ysize;
+        // Erstelle 2D-Array
         tiles = new Tile[xsize][ysize];
+        // Erstelle Tiles innerhalb des Arrays
+        for(int i=0; i < xsize; i++){
+            for(int j = 0; j < ysize; j++){
+                tiles[i][j] = new Tile();
+            }
+        }
         //this.map[2][1].setBorderN(Owner.HOST);
     }
     
@@ -51,7 +58,7 @@ public class Map {
         for(int i=0; i < xsize; i++){
             
             for(int j = 0; j < ysize; j++){
-                System.out.print(this.tiles[i][j].getArea() + " ");
+                System.out.print(this.tiles[i][j].getArea());
             }
             System.out.println("");
                     

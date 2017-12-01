@@ -18,7 +18,7 @@ public class DnBController {
 
     public DnBController() {
         this.map = new Map();
-        this.map.setArea(2,1,Owner.GUEST);
+        //this.map.setArea(2,1,Owner.GUEST);
     }
     
     
