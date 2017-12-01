@@ -5,10 +5,26 @@
  */
 package prg2hs17_gr3_dnb.view;
 
+import java.awt.EventQueue;
+
+
+
 /**
  *
  * @author Daniel Ouwehand
  */
 public class MainFrame {
+    
+    
+
+    public MainFrame() {
+        
+        
+        
+    }
+    
+    
+    
+    
     
 }
