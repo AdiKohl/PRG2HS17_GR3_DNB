@@ -23,7 +23,30 @@ public class Map {
         this.xsize = xsize;
         this.ysize = ysize;
         map = new Tile[xsize][ysize];
+        //this.map[2][1].setBorderN(Owner.HOST);
     }
+    
+    public void setBorderN(int x, int y, Owner owner){
+        this.map[x][y].setBorderN(owner);
+    }
+    
+    public void setBorderE(int x, int y, Owner owner){
+        this.map[x][y].setBorderE(owner);
+    }
+    
+    public void setBorderS(int x, int y, Owner owner){
+        this.map[x][y].setBorderS(owner);
+    }
+    
+    public void setBorderW(int x, int y, Owner owner){
+        this.map[x][y].setBorderW(owner);
+    }
+    
+    
+    
+    
+    
+    
     
     
     
