@@ -28,6 +28,12 @@ public class Map {
         for(int i=0; i < xsize; i++){
             for(int j = 0; j < ysize; j++){
                 tiles[i][j] = new Tile();
+                tiles[i][j].setNeighborN(tiles[i-1][j]);
+                tiles[i][j].setNeighborE(tiles[i][j+1]);
+                tiles[i][j].setNeighborS(tiles[i+1][j]);
+                tiles[i][j].setNeighborW(tiles[i][j-1]);
+                
+                
             }
         }
         //this.map[2][1].setBorderN(Owner.HOST);
