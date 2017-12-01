@@ -30,6 +30,48 @@ public class Tile {
         
         
     }
+
+    public Owner getBorderN() {
+        return borderN;
+    }
+
+    public void setBorderN(Owner borderN) {
+        this.borderN = borderN;
+    }
+
+    public Owner getBorderE() {
+        return borderE;
+    }
+
+    public void setBorderE(Owner borderE) {
+        this.borderE = borderE;
+    }
+
+    public Owner getBorderS() {
+        return borderS;
+    }
+
+    public void setBorderS(Owner borderS) {
+        this.borderS = borderS;
+    }
+
+    public Owner getBorderW() {
+        return borderW;
+    }
+
+    public void setBorderW(Owner borderW) {
+        this.borderW = borderW;
+    }
+
+    public Owner getArea() {
+        return area;
+    }
+
+    public void setArea(Owner area) {
+        this.area = area;
+    }
+    
+    
     
     
     
