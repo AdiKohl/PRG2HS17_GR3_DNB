@@ -28,7 +28,7 @@ public class MultiFrame extends JFrame {
     private JLabel ownIP = new JLabel("own IP adress");
     private JTextField writeIP = new JTextField();
     private JPanel panelMain = new JPanel();
-    private JPanel panelEast = new JPanel();
+    
     
 
     public MultiFrame() {
