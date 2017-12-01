@@ -14,13 +14,18 @@ package prg2hs17_gr3_dnb.model;
 
 public class Tile {
     
-
-    
     private Owner borderN;
     private Owner borderE;
     private Owner borderS;
     private Owner borderW;
     private Owner area;
+    
+    private Tile neighborN;
+    private Tile neighborE;
+    private Tile neighborS;
+    private Tile neighborW;
+    
+    
 
     public Tile() {
         
@@ -29,6 +34,10 @@ public class Tile {
         this.borderS = Owner.VOID;
         this.borderW = Owner.VOID;
         this.area = Owner.VOID;
+        this.neighborN = null;
+        this.neighborE = null;
+        this.neighborS = null;
+        this.neighborW = null;
         
     }
 
@@ -70,6 +79,38 @@ public class Tile {
 
     public void setArea(Owner area) {
         this.area = area;
+    }
+
+    public Tile getNeighborN() {
+        return neighborN;
+    }
+
+    public void setNeighborN(Tile neighborN) {
+        this.neighborN = neighborN;
+    }
+
+    public Tile getNeighborE() {
+        return neighborE;
+    }
+
+    public void setNeighborE(Tile neighborE) {
+        this.neighborE = neighborE;
+    }
+
+    public Tile getNeighborS() {
+        return neighborS;
+    }
+
+    public void setNeighborS(Tile neighborS) {
+        this.neighborS = neighborS;
+    }
+
+    public Tile getNeighborW() {
+        return neighborW;
+    }
+
+    public void setNeighborW(Tile neighborW) {
+        this.neighborW = neighborW;
     }
     
     
