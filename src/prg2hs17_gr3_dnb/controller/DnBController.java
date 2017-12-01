@@ -4,11 +4,24 @@
  * and open the template in the editor.
  */
 package prg2hs17_gr3_dnb.controller;
+import prg2hs17_gr3_dnb.model.Map;
+//import prg2hs17_gr3_dnb.view;
 
 /**
  *
  * @author Adi
  */
 public class DnBController {
+    
+    private Map map;
+
+    public DnBController() {
+        this.map = new Map();
+    }
+    
+    
+    
+    
+    
     
 }
