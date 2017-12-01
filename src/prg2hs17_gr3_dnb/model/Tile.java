@@ -14,6 +14,7 @@ package prg2hs17_gr3_dnb.model;
 
 public class Tile {
     
+
     
     private Owner borderN;
     private Owner borderE;

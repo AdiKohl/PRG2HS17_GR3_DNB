@@ -13,7 +13,7 @@ public class Map {
     
     int xsize;
     int ysize;
-    Tile[][] map;
+    Tile[][] tiles;
 
     public Map() {
         this(3,3);        
@@ -22,28 +22,41 @@ public class Map {
     public Map(int xsize, int ysize) {
         this.xsize = xsize;
         this.ysize = ysize;
-        map = new Tile[xsize][ysize];
+        tiles = new Tile[xsize][ysize];
         //this.map[2][1].setBorderN(Owner.HOST);
     }
     
     public void setBorderN(int x, int y, Owner owner){
-        this.map[x][y].setBorderN(owner);
+        this.tiles[x][y].setBorderN(owner);
     }
     
     public void setBorderE(int x, int y, Owner owner){
-        this.map[x][y].setBorderE(owner);
+        this.tiles[x][y].setBorderE(owner);
     }
     
     public void setBorderS(int x, int y, Owner owner){
-        this.map[x][y].setBorderS(owner);
+        this.tiles[x][y].setBorderS(owner);
     }
     
     public void setBorderW(int x, int y, Owner owner){
-        this.map[x][y].setBorderW(owner);
+        this.tiles[x][y].setBorderW(owner);
+    }
+    
+    public void setArea(int x, int y, Owner owner){
+        this.tiles[x][y].setArea(owner);
     }
     
     
-    
+    public void printMap(){
+        for(int i=0; i < xsize; i++){
+            
+            for(int j = 0; j < ysize; j++){
+                System.out.print(this.tiles[i][j].getArea() + " ");
+            }
+            System.out.println("");
+                    
+        }
+    }
     
     
     

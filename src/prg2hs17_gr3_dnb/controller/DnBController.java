@@ -5,6 +5,7 @@
  */
 package prg2hs17_gr3_dnb.controller;
 import prg2hs17_gr3_dnb.model.Map;
+import prg2hs17_gr3_dnb.model.Owner;
 //import prg2hs17_gr3_dnb.view;
 
 /**
@@ -17,9 +18,14 @@ public class DnBController {
 
     public DnBController() {
         this.map = new Map();
+        this.map.setArea(2,1,Owner.GUEST);
     }
     
     
+    
+    public void printMap(){
+        this.map.printMap();
+    }
     
     
     

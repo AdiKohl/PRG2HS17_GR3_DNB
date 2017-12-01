@@ -9,6 +9,8 @@ package prg2hs17_gr3_dnb.model;
  *
  * @author Adi
  */
-public enum Owner {    
+public enum Owner {
+   
 VOID, HOST, GUEST    
+
 }
