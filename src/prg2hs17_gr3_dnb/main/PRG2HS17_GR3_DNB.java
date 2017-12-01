@@ -5,6 +5,8 @@
  */
 package prg2hs17_gr3_dnb.main;
 
+import prg2hs17_gr3_dnb.controller.DnBController;
+
 /**
  *
  * @author Adi
@@ -14,8 +16,13 @@ public class PRG2HS17_GR3_DNB {
     /**
      * @param args the command line arguments
      */
+    static DnBController controller;
+    
     public static void main(String[] args) {
         // TODO code application logic here
+        controller = new DnBController();
+        
+        
     }
     
 }
