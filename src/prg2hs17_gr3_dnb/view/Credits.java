@@ -20,10 +20,10 @@ import javax.swing.WindowConstants;
  */
 public class Credits extends JFrame{
     
-    private final JLabel lucien = new JLabel("Egloff Lucien");
-    private final JLabel adrian = new JLabel("Kohler Adrian");
-    private final JLabel daniel = new JLabel("Ouwehand Daniel");
-    private final JLabel peter = new JLabel("Zürcher Peter");
+    private final JLabel lucien = new JLabel("Lucien Egloff");
+    private final JLabel adrian = new JLabel("Adrian Kohler");
+    private final JLabel daniel = new JLabel("Daniel Ouwehand");
+    private final JLabel peter = new JLabel("Peter Zürcher");
     private final JLabel top = new JLabel("Credits");
     private JPanel panel = new JPanel();
 
