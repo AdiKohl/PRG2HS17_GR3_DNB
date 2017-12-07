@@ -14,6 +14,8 @@ package prg2hs17_gr3_dnb.model;
 
 public class Tile {
     
+    private String ID;
+    
     private Owner borderN;
     private Owner borderE;
     private Owner borderS;
@@ -29,6 +31,8 @@ public class Tile {
 
     public Tile() {
         
+        
+        this.ID = "ID";
         this.borderN = Owner.VOID;
         this.borderE = Owner.VOID;
         this.borderS = Owner.VOID;
@@ -111,6 +115,14 @@ public class Tile {
 
     public void setNeighborW(Tile neighborW) {
         this.neighborW = neighborW;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
     
     
