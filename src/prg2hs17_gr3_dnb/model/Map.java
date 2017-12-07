@@ -28,10 +28,11 @@ public class Map {
         for(int i=0; i < xsize; i++){
             for(int j = 0; j < ysize; j++){
                 tiles[i][j] = new Tile();
-                tiles[i][j].setNeighborN(tiles[i-1][j]);
-                tiles[i][j].setNeighborE(tiles[i][j+1]);
-                tiles[i][j].setNeighborS(tiles[i+1][j]);
-                tiles[i][j].setNeighborW(tiles[i][j-1]);
+                tiles[i][j].setID("X" + i + "Y" + j);
+                tiles[i][j].setNeighborN((i-1<0) ? null : tiles[i-1][j]);
+                tiles[i][j].setNeighborE((j+1>=ysize) ? null : tiles[i][j+1]);
+                tiles[i][j].setNeighborS((i+1>=xsize) ? null : tiles[i+1][j]);
+                tiles[i][j].setNeighborW((j-1<0) ? null : tiles[i][j-1]);
                 
                 
             }
@@ -59,12 +60,22 @@ public class Map {
         this.tiles[x][y].setArea(owner);
     }
     
+    public void printTile(int x, int y){
+        
+        System.out.print(this.tiles[x][y].getID() + " ");
+        /*
+        System.out.print("Area: " + tiles[x][y].getArea());
+        System.out.print(" | NN: " + tiles[x][y].getNeighborN());
+        */   
+    }
     
     public void printMap(){
         for(int i=0; i < xsize; i++){
             
             for(int j = 0; j < ysize; j++){
-                System.out.print(this.tiles[i][j].getArea());
+                
+                printTile(i,j);
+                //System.out.println("");
             }
             System.out.println("");
                     
