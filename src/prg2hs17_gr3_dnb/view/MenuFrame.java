@@ -66,6 +66,10 @@ public class MenuFrame extends JFrame{
             singelplayerPressed();
         });
         
+        quit.addActionListener((ActionEvent e) -> {
+            quitPressed();
+        });
+        
         
         
         setVisible(true);
@@ -84,6 +88,11 @@ public class MenuFrame extends JFrame{
         MainFrame frame = new MainFrame();
         frame.setVisible(true);
         this.setVisible(false);
+
+    }
+   
+   public void quitPressed() {
+        System.exit(0);
 
     }
    
