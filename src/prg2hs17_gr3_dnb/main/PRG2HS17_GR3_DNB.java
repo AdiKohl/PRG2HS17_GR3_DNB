@@ -6,6 +6,8 @@
 package prg2hs17_gr3_dnb.main;
 
 import prg2hs17_gr3_dnb.controller.DnBController;
+import prg2hs17_gr3_dnb.view.*;
+import java.awt.EventQueue;
 
 /**
  *
@@ -22,6 +24,7 @@ public class PRG2HS17_GR3_DNB {
         // TODO code application logic here
         controller = new DnBController();
         controller.printMap();
+        EventQueue.invokeLater(() -> new MainFrame());
         
     }
     
