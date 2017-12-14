@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package prg2hs17_gr3_dnb.controller;
-import prg2hs17_gr3_dnb.model.Map;
+import prg2hs17_gr3_dnb.model.MapModel;
 import prg2hs17_gr3_dnb.model.Owner;
 //import prg2hs17_gr3_dnb.view;
 
@@ -14,10 +14,12 @@ import prg2hs17_gr3_dnb.model.Owner;
  */
 public class DnBController {
     
-    private Map map;
+    private MapModel map;
+    
+    
 
     public DnBController() {
-        this.map = new Map();
+        this.map = new MapModel();
         //this.map.setArea(2,1,Owner.GUEST);
     }
     
