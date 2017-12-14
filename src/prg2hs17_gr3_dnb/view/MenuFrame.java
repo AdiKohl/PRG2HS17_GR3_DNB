@@ -62,6 +62,10 @@ public class MenuFrame extends JFrame{
             creditsPressed();
         });
         
+        singleplayer.addActionListener((ActionEvent e) -> {
+            singelplayerPressed();
+        });
+        
         
         
         setVisible(true);
@@ -75,6 +79,15 @@ public class MenuFrame extends JFrame{
         this.setVisible(false);
 
     }
+   
+   public void singelplayerPressed() {
+        MainFrame frame = new MainFrame();
+        frame.setVisible(true);
+        this.setVisible(false);
+
+    }
+   
+   
     
     
     
