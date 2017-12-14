@@ -24,7 +24,7 @@ public class PRG2HS17_GR3_DNB {
         // TODO code application logic here
         controller = new DnBController();
         controller.printMap();
-        EventQueue.invokeLater(() -> new MainFrame());
+        
         
     }
     
