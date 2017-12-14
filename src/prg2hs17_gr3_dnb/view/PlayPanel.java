@@ -12,20 +12,23 @@ package prg2hs17_gr3_dnb.view;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
+import java.awt.event.*;
 
 /**
  *
  * @author Daniel Ouwehand
  */
-public class PlayPanel extends JPanel{
+public class PlayPanel extends JPanel {
     
+    
+
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         this.setBackground(Color.white);
-        
-        setSize(380,380);
-        
+
+        setSize(380, 380);
+
         g.setColor(Color.black);
         g.fillOval(30, 30, 20, 20);
         g.fillOval(130, 30, 20, 20);
@@ -45,10 +48,36 @@ public class PlayPanel extends JPanel{
         g.fillOval(330, 330, 20, 20);
         
         
-        
-        
+
+    }
+
+    public void setMouseListener(MouseListener l){
+        this.addMouseListener(l);
     }
     
-    
-    
+    /*
+    public void mouseClicked(MouseEvent arg0) {
+        
+        
+        System.out.println("Hey, that was a click!");
+
+    }
+
+    public void mouseExited(MouseEvent arg0) {
+
+    }
+
+    public void mouseEntered(MouseEvent arg0) {
+
+    }
+
+    public void mousePressed(MouseEvent arg0) {
+
+    }
+
+    public void mouseReleased(MouseEvent arg0) {
+
+        
+    }*/
+
 }
