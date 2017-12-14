@@ -24,25 +24,25 @@ public class PlayPanel extends JPanel{
         super.paintComponent(g);
         this.setBackground(Color.white);
         
-        setSize(340,340);
+        setSize(380,380);
         
         g.setColor(Color.black);
-        g.fillOval(10, 10, 20, 20);
-        g.fillOval(110, 10, 20, 20);
-        g.fillOval(210, 10, 20, 20);
-        g.fillOval(310, 10, 20, 20);
-        g.fillOval(10, 110, 20, 20);
-        g.fillOval(110, 110, 20, 20);
-        g.fillOval(210, 110, 20, 20);
-        g.fillOval(310, 110, 20, 20);
-        g.fillOval(10, 210, 20, 20);
-        g.fillOval(110, 210, 20, 20);
-        g.fillOval(210, 210, 20, 20);
-        g.fillOval(310, 210, 20, 20);
-        g.fillOval(10, 310, 20, 20);
-        g.fillOval(110, 310, 20, 20);
-        g.fillOval(210, 310, 20, 20);
-        g.fillOval(310, 310, 20, 20);
+        g.fillOval(30, 30, 20, 20);
+        g.fillOval(130, 30, 20, 20);
+        g.fillOval(230, 30, 20, 20);
+        g.fillOval(330, 30, 20, 20);
+        g.fillOval(30, 130, 20, 20);
+        g.fillOval(130, 130, 20, 20);
+        g.fillOval(230, 130, 20, 20);
+        g.fillOval(330, 130, 20, 20);
+        g.fillOval(30, 230, 20, 20);
+        g.fillOval(130, 230, 20, 20);
+        g.fillOval(230, 230, 20, 20);
+        g.fillOval(330, 230, 20, 20);
+        g.fillOval(30, 330, 20, 20);
+        g.fillOval(130, 330, 20, 20);
+        g.fillOval(230, 330, 20, 20);
+        g.fillOval(330, 330, 20, 20);
         
         
         
