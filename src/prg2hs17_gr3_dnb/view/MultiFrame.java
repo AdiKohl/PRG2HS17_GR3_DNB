@@ -22,7 +22,7 @@ import javax.swing.WindowConstants;
  */
 public class MultiFrame extends JFrame {
     
-    private final JLabel titel = new JLabel("Multiplayer Menu");
+    private final JLabel title = new JLabel("Multiplayer Menu");
     private final JButton host = new JButton("Host");
     private final JButton join = new JButton("Join");
     private JLabel ownIP = new JLabel("own IP adress");
@@ -41,7 +41,7 @@ public class MultiFrame extends JFrame {
         
         panelMain.setLayout(new GridLayout(2,2,80,20));
         add(panelMain, BorderLayout.CENTER);
-        add(titel, BorderLayout.NORTH);
+        add(title, BorderLayout.NORTH);
         
         panelMain.add(host);        
         panelMain.add(join);
@@ -49,8 +49,8 @@ public class MultiFrame extends JFrame {
         panelMain.add(writeIP);
         
         panelMain.setBorder(BorderFactory.createEmptyBorder(160, 80, 200, 80));
-        titel.setBorder(BorderFactory.createEmptyBorder(20, 140, 0, 0));
-        titel.setFont(new Font("Serif",Font.BOLD ,50));
+        title.setBorder(BorderFactory.createEmptyBorder(20, 140, 0, 0));
+        title.setFont(new Font("Serif",Font.BOLD ,50));
         ownIP.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
       
         
