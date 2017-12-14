@@ -48,8 +48,14 @@ public class MainFrame extends JFrame{
         playField.setBorder(BorderFactory.createMatteBorder(10, 10, 10, 10, Color.black));
         
         setVisible(true);
+        
+        
     
     
+    }
+
+    public PlayPanel getPlayField() {
+        return playField;
     }
     
     
