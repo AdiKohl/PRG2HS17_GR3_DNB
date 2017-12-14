@@ -24,6 +24,8 @@ public class PlayPanel extends JPanel{
         super.paintComponent(g);
         this.setBackground(Color.white);
         
+        setSize(340,360);
+        
         g.setColor(Color.black);
         g.fillOval(0, 0, 20, 20);
         g.fillOval(100, 0, 20, 20);
