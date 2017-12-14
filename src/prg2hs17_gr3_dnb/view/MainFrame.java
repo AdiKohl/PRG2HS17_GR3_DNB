@@ -43,8 +43,8 @@ public class MainFrame extends JFrame{
         add(panelSouth, BorderLayout.SOUTH);
         add(panelWest, BorderLayout.WEST);
         
-        panelNorth.setBorder(BorderFactory.createEmptyBorder(0, 0, 230, 0));
-        panelWest.setBorder(BorderFactory.createEmptyBorder(0, 230, 0, 0));
+        panelNorth.setBorder(BorderFactory.createEmptyBorder(0, 0, 210, 0));
+        panelWest.setBorder(BorderFactory.createEmptyBorder(0, 210, 0, 0));
         playField.setBorder(BorderFactory.createMatteBorder(10, 10, 10, 10, Color.black));
         
         setVisible(true);
