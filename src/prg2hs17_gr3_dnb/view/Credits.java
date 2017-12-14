@@ -6,9 +6,12 @@
 package prg2hs17_gr3_dnb.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,6 +29,8 @@ public class Credits extends JFrame{
     private final JLabel peter = new JLabel("Peter Zürcher");
     private final JLabel top = new JLabel("Credits");
     private JPanel panel = new JPanel();
+    private JButton back = new JButton("Back");
+    private JPanel panelEast = new JPanel();
 
     public Credits() {
         
@@ -43,12 +48,16 @@ public class Credits extends JFrame{
         
         
         add(panel,BorderLayout.CENTER);
-        panel.setLayout(new GridLayout(4,1));
-        panel.setBorder(BorderFactory.createEmptyBorder(60, 40, 140, 0));
+        panel.setLayout(new GridLayout(5,1));
+        panel.setBorder(BorderFactory.createEmptyBorder(60, 40, 120, 0));
         panel.add(lucien);
         panel.add(adrian);
         panel.add(daniel);
         panel.add(peter);
+        add(panelEast,BorderLayout.EAST);
+        panelEast.add(back);
+        //back.setPreferredSize(new Dimension(20, 10));
+        panelEast.setBorder(BorderFactory.createEmptyBorder(400, 20, 20, 20));
         
         
         lucien.setFont(new Font("Serif",Font.BOLD ,20));
@@ -56,12 +65,25 @@ public class Credits extends JFrame{
         daniel.setFont(new Font("Serif",Font.BOLD ,20));
         peter.setFont(new Font("Serif",Font.BOLD ,20));
         
+        
+        back.addActionListener((ActionEvent e) -> {
+            backPressed();
+        });
+        
                 
         
         
         
         setVisible(true);
         
+    }
+    
+    
+    public void backPressed() {
+        MenuFrame frame = new MenuFrame();
+        frame.setVisible(true);
+        this.setVisible(false);
+
     }
     
     
