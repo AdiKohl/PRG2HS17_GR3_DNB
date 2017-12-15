@@ -21,6 +21,9 @@ import prg2hs17_gr3_dnb.model.Owner;
  */
 public class PlayPanel extends JPanel {
     
+    private final int sizeX = 380;
+    private final int sizeY = 380;
+    
     
 
     @Override
@@ -28,7 +31,7 @@ public class PlayPanel extends JPanel {
         super.paintComponent(g);
         this.setBackground(Color.white);
 
-        setSize(380, 380);
+        setSize(sizeX, sizeY);
 
         g.setColor(Color.black);
         g.fillOval(30, 30, 20, 20);
@@ -62,19 +65,35 @@ public class PlayPanel extends JPanel {
         switch (o){
             
             case GUEST: g.setColor(Color.red);
-                        g.drawLine(x1,y1,x2,y2);
+                        
                         break;
                         
-            case HOST:  g.setColor(Color.red);
-                        g.drawLine(x1,y1,x2,y2);
-                        break;          
+            case HOST:  g.setColor(Color.blue);
+                        
+                        break;
+                        
+            default: g.setColor(Color.green);
             
             
         
         
         }
+        
+        g.drawLine(x1,y1,x2,y2);
     
     }
+    
+    public int getSizeX(){
+        
+        return sizeX;
+    
+    }
+
+    public int getSizeY() {
+        return sizeY;
+    }
+    
+    
 
     
 
