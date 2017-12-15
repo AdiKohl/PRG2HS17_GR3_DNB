@@ -22,6 +22,9 @@ public class DnBController {
 
     private MapModel map;
     private MenuFrame menu;
+    
+    private int sizeX;
+    private int sizeY;
 
     public DnBController() {
         this.map = new MapModel();
@@ -32,6 +35,9 @@ public class DnBController {
     }
     
     public void calculateElement(int x, int y){
+        this.sizeX = menu.getMainFrame().getPlayField().getSizeX();
+        this.sizeY = menu.getMainFrame().getPlayField().getSizeY();
+        
         
     }
 
