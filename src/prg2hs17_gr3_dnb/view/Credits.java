@@ -38,13 +38,13 @@ public class Credits extends JFrame{
         
         super("Dots and Boxes");
         
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(400, 600);
         setLayout(new BorderLayout());
         
         add(top, BorderLayout.NORTH);
         top.setBorder(BorderFactory.createEmptyBorder(20, 40, 0, 0));
-        top.setFont(new Font("Serif",Font.BOLD ,50));
+        top.setFont(new Font("SanSerif",Font.BOLD ,50));
         
         
         
@@ -64,10 +64,10 @@ public class Credits extends JFrame{
         panelEast.setBorder(BorderFactory.createEmptyBorder(400, 20, 20, 20));
         
         
-        lucien.setFont(new Font("Serif",Font.BOLD ,20));
-        adrian.setFont(new Font("Serif",Font.BOLD ,20));
-        daniel.setFont(new Font("Serif",Font.BOLD ,20));
-        peter.setFont(new Font("Serif",Font.BOLD ,20));
+        lucien.setFont(new Font("SanSerif",Font.BOLD ,20));
+        adrian.setFont(new Font("SanSerif",Font.BOLD ,20));
+        daniel.setFont(new Font("SanSerif",Font.BOLD ,20));
+        peter.setFont(new Font("SanSerif",Font.BOLD ,20));
         
         
         

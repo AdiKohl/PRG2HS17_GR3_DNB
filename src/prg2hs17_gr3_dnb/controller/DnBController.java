@@ -30,6 +30,10 @@ public class DnBController {
         addMenuListeners();
         //this.map.setArea(2,1,Owner.GUEST);
     }
+    
+    public void calculateElement(int x, int y){
+        
+    }
 
     public void addMenuListeners(){
         this.menu.setCreditsListener(new ButtonCreditsListener());
@@ -37,8 +41,14 @@ public class DnBController {
         this.menu.setQuitListener(new ButtonQuitListener());
     }
     
-    public void addMouseListener() {
+    public void addSingleListener() {
         menu.getMainFrame().setMouseListener(new MousePFListener());
+        menu.getMainFrame().setBackToMenuListener(new ButtonSingleToMenuListener());
+    }
+    
+    public void addCreditListener(){
+        menu.getCreditFrame().setBackToMenuListener(new ButtonCreditToMenuListener());
+        
     }
 
     public void printMap() {
@@ -46,14 +56,14 @@ public class DnBController {
     }
 
     
-// MAIN MENU ACTION LISTENER
+/* MAIN MENU ACTION LISTENERS */
     
     class ButtonSingleplayerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         menu.setMainFrame(new MainFrame());
         menu.getMainFrame().setVisible(true);
         menu.setVisible(false);
-        addMouseListener();
+        addSingleListener();
         }
     }
     
@@ -61,7 +71,8 @@ public class DnBController {
         public void actionPerformed(ActionEvent e) {
         menu.setCreditFrame(new Credits());
         menu.getCreditFrame().setVisible(true);
-        menu.setVisible(false);
+        //menu.setVisible(false);
+        addCreditListener();
         }
     }
     
@@ -71,7 +82,7 @@ public class DnBController {
         }
     }
     
-// SINGLE PLAYER WINDOW LISTENER    
+/* SINGLE PLAYER ACTION LISTENERS  */
     
     class MousePFListener implements MouseListener {
         
@@ -81,14 +92,24 @@ public class DnBController {
         public void mouseReleased(MouseEvent e){}
         public void mouseEntered(MouseEvent e){}
         public void mouseClicked(MouseEvent e){
-            System.out.println("that was a click!");
+            System.out.println("that was a click! at x: " + e.getX() + " and y: " + e.getY());
+            calculateElement(e.getX(),e.getY());
         }
         
     }
 
-    class ButtonBackToMenuListener implements ActionListener {
+    class ButtonSingleToMenuListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         menu.getMainFrame().setVisible(false);
+        menu.setVisible(true);
+        }
+    }
+    
+/* CREDITS ACTION LISTENER */
+
+    class ButtonCreditToMenuListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        menu.getCreditFrame().setVisible(false);
         menu.setVisible(true);
         }
     }
