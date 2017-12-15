@@ -21,8 +21,15 @@ import prg2hs17_gr3_dnb.model.Owner;
  */
 public class PlayPanel extends JPanel {
     
-    private final int sizeX = 380;
-    private final int sizeY = 380;
+    //private final int sizeX = 380;
+    //private final int sizeY = 380;
+    private final int pointDist = 100;
+    private final int pointDia = 20;
+    private final int borderDist = 30;
+    private final int pointsX = 4;
+    private final int pointsY = 4;
+            
+    
     
     
 
@@ -31,10 +38,10 @@ public class PlayPanel extends JPanel {
         super.paintComponent(g);
         this.setBackground(Color.white);
 
-        setSize(sizeX, sizeY);
+        setSize(getSizeX(), getSizeY());
 
         g.setColor(Color.black);
-        g.fillOval(30, 30, 20, 20);
+        /*g.fillOval(30, 30, 20, 20);
         g.fillOval(130, 30, 20, 20);
         g.fillOval(230, 30, 20, 20);
         g.fillOval(330, 30, 20, 20);
@@ -49,7 +56,16 @@ public class PlayPanel extends JPanel {
         g.fillOval(30, 330, 20, 20);
         g.fillOval(130, 330, 20, 20);
         g.fillOval(230, 330, 20, 20);
-        g.fillOval(330, 330, 20, 20);
+        g.fillOval(330, 330, 20, 20);*/
+        
+        for(int y = 0; y <= pointsY;y++){
+            for(int x = 0; x <= pointsX;x++){
+                
+                g.fillOval(borderDist + x*pointDist, borderDist+y*pointDist, pointDia, pointDia);
+            
+            }
+        
+        }
         
         
 
@@ -82,15 +98,15 @@ public class PlayPanel extends JPanel {
         g.drawLine(x1,y1,x2,y2);
     
     }
-    
+    // +20 will nu links und rechts de schwarzi rand isch
     public int getSizeX(){
         
-        return sizeX;
+        return (pointsX-1)*pointDist + 2*borderDist+20;
     
     }
 
     public int getSizeY() {
-        return sizeY;
+        return (pointsY-1)*pointDist + 2*borderDist+20;
     }
     
     
