@@ -101,7 +101,7 @@ public class MenuFrame extends JFrame{
         return mainFrame;
     }
 
-    public Credits getCreditFrame() {
+    public Credits2 getCreditFrame() {
         return creditFrame;
     }
    
