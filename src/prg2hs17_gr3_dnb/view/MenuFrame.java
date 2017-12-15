@@ -62,10 +62,6 @@ public class MenuFrame extends JFrame{
         
         
         
-        quit.addActionListener((ActionEvent e) -> {
-            quitPressed();
-        });
-        
         
         
         setVisible(true);
@@ -82,14 +78,13 @@ public class MenuFrame extends JFrame{
         this.singleplayer.addActionListener(l);
     }
     
+    public void setQuitListener(ActionListener l){
+        this.quit.addActionListener(l);
+    }
+    
     
 
 // Getter and Setter Methods
-    
-   public void quitPressed() {
-        System.exit(0);
-
-    }
 
     public MainFrame getMainFrame() {
         return mainFrame;

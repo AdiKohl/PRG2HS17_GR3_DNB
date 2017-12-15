@@ -34,6 +34,7 @@ public class DnBController {
     public void addMenuListeners(){
         this.menu.setCreditsListener(new ButtonCreditsListener());
         this.menu.setSingleplayerListener(new ButtonSingleplayerListener());
+        this.menu.setQuitListener(new ButtonQuitListener());
     }
     
     public void addMouseListener() {
@@ -44,18 +45,8 @@ public class DnBController {
         this.map.printMap();
     }
 
-    class MousePFListener implements MouseListener {
-        
-        @Override
-        public void mouseExited(MouseEvent e){}
-        public void mousePressed(MouseEvent e){}
-        public void mouseReleased(MouseEvent e){}
-        public void mouseEntered(MouseEvent e){}
-        public void mouseClicked(MouseEvent e){
-            System.out.println("that was a click!");
-        }
-        
-    }
+    
+// MAIN MENU ACTION LISTENER
     
     class ButtonSingleplayerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -74,6 +65,33 @@ public class DnBController {
         }
     }
     
+    class ButtonQuitListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        System.exit(0);
+        }
+    }
+    
+// SINGLE PLAYER WINDOW LISTENER    
+    
+    class MousePFListener implements MouseListener {
+        
+        @Override
+        public void mouseExited(MouseEvent e){}
+        public void mousePressed(MouseEvent e){}
+        public void mouseReleased(MouseEvent e){}
+        public void mouseEntered(MouseEvent e){}
+        public void mouseClicked(MouseEvent e){
+            System.out.println("that was a click!");
+        }
+        
+    }
+
+    class ButtonBackToMenuListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        menu.getMainFrame().setVisible(false);
+        menu.setVisible(true);
+        }
+    }
     
 
 }
