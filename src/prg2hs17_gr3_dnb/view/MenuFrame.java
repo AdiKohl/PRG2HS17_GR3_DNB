@@ -29,7 +29,8 @@ public class MenuFrame extends JFrame{
     private final JButton quit = new JButton ("Quit");
     private final JPanel panel = new JPanel();
     private final JLabel label = new JLabel("Mainmenu");
-    
+    private MainFrame mainFrame;
+    private Credits creditFrame;
 
     public MenuFrame() {
         
@@ -78,15 +79,15 @@ public class MenuFrame extends JFrame{
     
     
    public void creditsPressed() {
-        Credits frame = new Credits();
-        frame.setVisible(true);
+        this.creditFrame = new Credits();
+        this.creditFrame.setVisible(true);
         this.setVisible(false);
 
     }
    
    public void singelplayerPressed() {
-        MainFrame frame = new MainFrame();
-        frame.setVisible(true);
+        this.mainFrame = new MainFrame();
+        this.mainFrame.setVisible(true);
         this.setVisible(false);
 
     }
@@ -95,6 +96,16 @@ public class MenuFrame extends JFrame{
         System.exit(0);
 
     }
+
+    public MainFrame getMainFrame() {
+        return mainFrame;
+    }
+
+    public Credits getCreditFrame() {
+        return creditFrame;
+    }
+   
+   
    
    
     
