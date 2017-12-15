@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -31,6 +32,7 @@ public class Credits extends JFrame{
     private JPanel panel = new JPanel();
     private JButton back = new JButton("Back");
     private JPanel panelEast = new JPanel();
+    private MenuFrame menuFrame;
 
     public Credits() {
         
@@ -68,9 +70,7 @@ public class Credits extends JFrame{
         peter.setFont(new Font("Serif",Font.BOLD ,20));
         
         
-        back.addActionListener((ActionEvent e) -> {
-            backPressed();
-        });
+        
         
                 
         
@@ -81,11 +81,8 @@ public class Credits extends JFrame{
     }
     
     
-    public void backPressed() {
-        MenuFrame frame = new MenuFrame();
-        frame.setVisible(true);
-        this.setVisible(false);
-
+    public void setBackToMenuListener(ActionListener l){
+        this.back.addActionListener(l);
     }
     
     
