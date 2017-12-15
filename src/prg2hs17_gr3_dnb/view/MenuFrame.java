@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+import prg2hs17_gr3_dnb.controller.DnBController;
 
 /**
  *
@@ -63,6 +64,8 @@ public class MenuFrame extends JFrame{
             creditsPressed();
         });
         
+        
+        
         singleplayer.addActionListener((ActionEvent e) -> {
             singelplayerPressed();
         });
@@ -77,6 +80,10 @@ public class MenuFrame extends JFrame{
         
     }
     
+    public void setCreditsListener(ActionListener l){
+        this.credits.addActionListener(l);
+    }
+    
     
    public void creditsPressed() {
         this.creditFrame = new Credits2();
@@ -88,6 +95,7 @@ public class MenuFrame extends JFrame{
    public void singelplayerPressed() {
         this.mainFrame = new MainFrame();
         this.mainFrame.setVisible(true);
+        
         this.setVisible(false);
 
     }

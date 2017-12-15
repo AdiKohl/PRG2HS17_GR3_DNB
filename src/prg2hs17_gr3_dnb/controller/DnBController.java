@@ -7,6 +7,7 @@ package prg2hs17_gr3_dnb.controller;
 //import java.awt.EventQueue;
 
 import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
 import prg2hs17_gr3_dnb.model.MapModel;
 import prg2hs17_gr3_dnb.view.*;
 //import prg2hs17_gr3_dnb.view;
@@ -36,20 +37,15 @@ public class DnBController {
         this.map.printMap();
     }
 
-    class MousePFListener implements MouseListener {
-
-        public void mouseExited(MouseEvent e) {
-        }
-        public void mousePressed(MouseEvent e) {
-        }
-
-        public void mouseReleased(MouseEvent e) {
-        }
-
-        public void mouseEntered(MouseEvent e) {
-        }
-
-        public void mouseClicked(MouseEvent e) {
+    public class MousePFListener implements MouseListener {
+        
+        @Override
+        public void mouseExited(MouseEvent e){}
+        public void mousePressed(MouseEvent e){}
+        public void mouseReleased(MouseEvent e){}
+        public void mouseEntered(MouseEvent e){}
+        public void mouseClicked(MouseEvent e){
+            System.out.println("that was a click!");
         }
         
     }

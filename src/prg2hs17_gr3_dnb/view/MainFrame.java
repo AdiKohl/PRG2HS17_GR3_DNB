@@ -64,30 +64,7 @@ public class MainFrame extends JFrame{
         this.playField.addMouseListener(l);
     }
     
-    
-    public void mouseClicked(MouseEvent arg0) {
-        
-        
-        System.out.println("Hey, that was a click!");
 
-    }
-
-    public void mouseExited(MouseEvent arg0) {
-
-    }
-
-    public void mouseEntered(MouseEvent arg0) {
-
-    }
-
-    public void mousePressed(MouseEvent arg0) {
-
-    }
-
-    public void mouseReleased(MouseEvent arg0) {
-
-        
-    }
     
     
     
