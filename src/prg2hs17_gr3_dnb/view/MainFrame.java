@@ -7,9 +7,11 @@ package prg2hs17_gr3_dnb.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -27,6 +29,7 @@ public class MainFrame extends JFrame{
     private JPanel panelEast = new JPanel();
     private JPanel panelSouth = new JPanel();
     private JPanel panelWest = new JPanel();
+    private JButton backToMenu = new JButton("Back to menu");
     
     
     
@@ -45,6 +48,9 @@ public class MainFrame extends JFrame{
         add(panelSouth, BorderLayout.SOUTH);
         add(panelWest, BorderLayout.WEST);
         
+        panelSouth.add(backToMenu);
+        panelSouth.setBorder(BorderFactory.createEmptyBorder(0, 640, 0, 0));
+        
         panelNorth.setBorder(BorderFactory.createEmptyBorder(0, 0, 200, 0));
         panelWest.setBorder(BorderFactory.createEmptyBorder(0, 200, 0, 0));
         playField.setBorder(BorderFactory.createMatteBorder(10, 10, 10, 10, Color.black));
@@ -62,6 +68,10 @@ public class MainFrame extends JFrame{
     
     public void setMouseListener(MouseListener l){
         this.playField.addMouseListener(l);
+    }
+    
+    public void setBackToMenuListener(ActionListener l){
+        this.backToMenu.addActionListener(l);
     }
     
 
