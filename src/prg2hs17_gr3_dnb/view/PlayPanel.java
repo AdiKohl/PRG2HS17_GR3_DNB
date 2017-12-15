@@ -21,6 +21,7 @@ import prg2hs17_gr3_dnb.model.Owner;
  */
 public class PlayPanel extends JPanel {
     
+    //attribut sizeX und sizeY bruchts gar nid da sie via getter methode berrechnet wird
     //private final int sizeX = 380;
     //private final int sizeY = 380;
     private final int pointDist = 100;
@@ -108,6 +109,28 @@ public class PlayPanel extends JPanel {
     public int getSizeY() {
         return (pointsY-1)*pointDist + 2*borderDist+20;
     }
+
+    public int getPointDist() {
+        return pointDist;
+    }
+
+    public int getPointDia() {
+        return pointDia;
+    }
+
+    public int getBorderDist() {
+        return borderDist;
+    }
+
+    public int getPointsX() {
+        return pointsX;
+    }
+
+    public int getPointsY() {
+        return pointsY;
+    }
+    
+    
     
     
 
