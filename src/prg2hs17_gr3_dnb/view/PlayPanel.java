@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import java.awt.event.*;
+import prg2hs17_gr3_dnb.model.Owner;
 
 /**
  *
@@ -49,6 +50,30 @@ public class PlayPanel extends JPanel {
         
         
 
+    }
+    
+    
+    public void drawLine(int x1, int y1, int x2, int y2,Owner o){
+        
+        Graphics g = null;
+        
+        super.paintComponent(g);
+        
+        switch (o){
+            
+            case GUEST: g.setColor(Color.red);
+                        g.drawLine(x1,y1,x2,y2);
+                        break;
+                        
+            case HOST:  g.setColor(Color.red);
+                        g.drawLine(x1,y1,x2,y2);
+                        break;          
+            
+            
+        
+        
+        }
+    
     }
 
     
