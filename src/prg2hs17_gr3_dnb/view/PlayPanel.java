@@ -51,33 +51,6 @@ public class PlayPanel extends JPanel {
 
     }
 
-    public void setMouseListener(MouseListener l){
-        this.addMouseListener(l);
-    }
     
-    /*
-    public void mouseClicked(MouseEvent arg0) {
-        
-        
-        System.out.println("Hey, that was a click!");
-
-    }
-
-    public void mouseExited(MouseEvent arg0) {
-
-    }
-
-    public void mouseEntered(MouseEvent arg0) {
-
-    }
-
-    public void mousePressed(MouseEvent arg0) {
-
-    }
-
-    public void mouseReleased(MouseEvent arg0) {
-
-        
-    }*/
 
 }
