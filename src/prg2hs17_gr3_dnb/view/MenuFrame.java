@@ -29,7 +29,7 @@ public class MenuFrame extends JFrame{
     private final JButton credits = new JButton ("Credits");
     private final JButton quit = new JButton ("Quit");
     private final JPanel panel = new JPanel();
-    private final JLabel label = new JLabel("Mainmenu");
+    private final JLabel label = new JLabel("Main Menu");
     private MainFrame mainFrame;
     private Credits creditFrame;
 
@@ -44,7 +44,7 @@ public class MenuFrame extends JFrame{
         
         add(label, BorderLayout.NORTH);
         
-        label.setFont(new Font("Serif",Font.BOLD ,50));       
+        label.setFont(new Font("SanSerif",Font.BOLD ,50));       
         
         
         setResizable(false);       
