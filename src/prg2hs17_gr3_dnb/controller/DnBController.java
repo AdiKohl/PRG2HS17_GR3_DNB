@@ -6,6 +6,8 @@
 package prg2hs17_gr3_dnb.controller;
 //import java.awt.EventQueue;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import prg2hs17_gr3_dnb.model.MapModel;
@@ -25,11 +27,16 @@ public class DnBController {
         this.map = new MapModel();
         //EventQueue.invokeLater(() -> new MenuFrame());
         this.menu = new MenuFrame();
-        addListeners();
+        addMenuListeners();
         //this.map.setArea(2,1,Owner.GUEST);
     }
 
-    public void addListeners() {
+    public void addMenuListeners(){
+        this.menu.setCreditsListener(new ButtonCreditsListener());
+        this.menu.setSingleplayerListener(new ButtonSingleplayerListener());
+    }
+    
+    public void addMouseListener() {
         menu.getMainFrame().setMouseListener(new MousePFListener());
     }
 
@@ -37,7 +44,7 @@ public class DnBController {
         this.map.printMap();
     }
 
-    public class MousePFListener implements MouseListener {
+    class MousePFListener implements MouseListener {
         
         @Override
         public void mouseExited(MouseEvent e){}
@@ -49,5 +56,24 @@ public class DnBController {
         }
         
     }
+    
+    class ButtonSingleplayerListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        menu.setMainFrame(new MainFrame());
+        menu.getMainFrame().setVisible(true);
+        menu.setVisible(false);
+        addMouseListener();
+        }
+    }
+    
+    class ButtonCreditsListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        menu.setCreditFrame(new Credits());
+        menu.getCreditFrame().setVisible(true);
+        menu.setVisible(false);
+        }
+    }
+    
+    
 
 }

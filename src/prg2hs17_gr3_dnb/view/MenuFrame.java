@@ -60,15 +60,7 @@ public class MenuFrame extends JFrame{
         panel.add(credits);
         panel.add(quit);  
         
-        credits.addActionListener((ActionEvent e) -> {
-            creditsPressed();
-        });
         
-        
-        
-        singleplayer.addActionListener((ActionEvent e) -> {
-            singelplayerPressed();
-        });
         
         quit.addActionListener((ActionEvent e) -> {
             quitPressed();
@@ -80,26 +72,20 @@ public class MenuFrame extends JFrame{
         
     }
     
+    
+// ActionListener Adding Methods    
     public void setCreditsListener(ActionListener l){
         this.credits.addActionListener(l);
     }
     
+    public void setSingleplayerListener(ActionListener l){
+        this.singleplayer.addActionListener(l);
+    }
     
-   public void creditsPressed() {
-        this.creditFrame = new Credits();
-        this.creditFrame.setVisible(true);
-        this.setVisible(false);
+    
 
-    }
-   
-   public void singelplayerPressed() {
-        this.mainFrame = new MainFrame();
-        this.mainFrame.setVisible(true);
-        
-        this.setVisible(false);
-
-    }
-   
+// Getter and Setter Methods
+    
    public void quitPressed() {
         System.exit(0);
 
@@ -109,9 +95,20 @@ public class MenuFrame extends JFrame{
         return mainFrame;
     }
 
+    public void setMainFrame(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
+    }
+
+    
     public Credits getCreditFrame() {
         return creditFrame;
     }
+    
+    
+    public void setCreditFrame(Credits creditFrame) {
+        this.creditFrame = creditFrame;
+    }
+
    
    
    
