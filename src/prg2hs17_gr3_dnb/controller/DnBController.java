@@ -49,8 +49,6 @@ public class DnBController {
         public void mouseEntered(MouseEvent e) {
         }
 
-        
-
         public void mouseClicked(MouseEvent e) {
         }
         
