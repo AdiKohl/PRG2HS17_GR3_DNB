@@ -29,14 +29,14 @@ public class DnBController {
     }
 
     public void addListeners() {
-        menu.getMainFrame().getPlayField();
+        menu.getMainFrame().setMouseListener(new MousePFListener());
     }
 
     public void printMap() {
         this.map.printMap();
     }
 
-    class PFMouseListener implements MouseListener {
+    class MousePFListener implements MouseListener {
 
         public void mouseExited(MouseEvent e) {
         }
