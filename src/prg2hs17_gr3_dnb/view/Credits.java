@@ -47,6 +47,8 @@ public class Credits extends JFrame{
         
         
         
+        
+        
         add(panel,BorderLayout.CENTER);
         panel.setLayout(new GridLayout(5,1));
         panel.setBorder(BorderFactory.createEmptyBorder(60, 40, 120, 0));

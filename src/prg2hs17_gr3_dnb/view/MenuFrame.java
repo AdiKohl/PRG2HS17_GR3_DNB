@@ -30,7 +30,7 @@ public class MenuFrame extends JFrame{
     private final JPanel panel = new JPanel();
     private final JLabel label = new JLabel("Mainmenu");
     private MainFrame mainFrame;
-    private Credits creditFrame;
+    private Credits2 creditFrame;
 
     public MenuFrame() {
         
@@ -79,7 +79,7 @@ public class MenuFrame extends JFrame{
     
     
    public void creditsPressed() {
-        this.creditFrame = new Credits();
+        this.creditFrame = new Credits2();
         this.creditFrame.setVisible(true);
         this.setVisible(false);
 
@@ -101,7 +101,7 @@ public class MenuFrame extends JFrame{
         return mainFrame;
     }
 
-    public Credits getCreditFrame() {
+    public Credits2 getCreditFrame() {
         return creditFrame;
     }
    
