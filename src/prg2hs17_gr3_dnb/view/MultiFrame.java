@@ -8,6 +8,7 @@ package prg2hs17_gr3_dnb.view;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,6 +29,9 @@ public class MultiFrame extends JFrame {
     private JLabel ownIP = new JLabel("own IP adress");
     private JTextField writeIP = new JTextField();
     private JPanel panelMain = new JPanel();
+    private final JButton backToMenu = new JButton("Back to menu");
+    private JPanel panelSouth = new JPanel();
+    
     
     
 
@@ -42,13 +46,19 @@ public class MultiFrame extends JFrame {
         panelMain.setLayout(new GridLayout(2,2,80,20));
         add(panelMain, BorderLayout.CENTER);
         add(title, BorderLayout.NORTH);
+        add(panelSouth, BorderLayout.SOUTH);
+        
         
         panelMain.add(host);        
         panelMain.add(join);
         panelMain.add(ownIP);
         panelMain.add(writeIP);
         
-        panelMain.setBorder(BorderFactory.createEmptyBorder(160, 80, 200, 80));
+        panelSouth.add(backToMenu);
+        panelSouth.setBorder(BorderFactory.createEmptyBorder(0, 500, 20, 0));
+        
+        
+        panelMain.setBorder(BorderFactory.createEmptyBorder(140, 80, 160, 80));
         title.setBorder(BorderFactory.createEmptyBorder(20, 140, 0, 0));
         title.setFont(new Font("Serif",Font.BOLD ,50));
         ownIP.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
@@ -60,6 +70,19 @@ public class MultiFrame extends JFrame {
         
         setVisible(true);        
         
+    }
+    
+    public void setHostListener(ActionListener l){
+        this.backToMenu.addActionListener(l);
+    }
+        
+        
+    public void setJoinListener(ActionListener l){
+        this.backToMenu.addActionListener(l);
+    }
+    
+    public void setBackToMenuListener(ActionListener l){
+        this.backToMenu.addActionListener(l);
     }
     
     
