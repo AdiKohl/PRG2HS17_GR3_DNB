@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import prg2hs17_gr3_dnb.model.MapModel;
+import prg2hs17_gr3_dnb.model.Owner;
 import prg2hs17_gr3_dnb.view.*;
 //import prg2hs17_gr3_dnb.view;
 
@@ -25,6 +26,11 @@ public class DnBController {
     
     private int sizeX;
     private int sizeY;
+    private int row;
+    private int col;
+    private int xCell;
+    private int yCell;
+    
 
     public DnBController() {
         this.map = new MapModel();
@@ -34,11 +40,35 @@ public class DnBController {
         //this.map.setArea(2,1,Owner.GUEST);
     }
     
-    public void calculateElement(int x, int y){
-        this.sizeX = menu.getMainFrame().getPlayField().getSizeX();
-        this.sizeY = menu.getMainFrame().getPlayField().getSizeY();
+    public void evaluateClick(int x, int y){
+        // Berechnung der Zelle
+        this.col = (x-this.menu.getMainFrame().getPlayField().getBorderDist())/this.menu.getMainFrame().getPlayField().getPointDist();
+        if(col==3) col=2;
+        //System.out.println("Column:" + col);
+        this.row = (y-this.menu.getMainFrame().getPlayField().getBorderDist())/this.menu.getMainFrame().getPlayField().getPointDist();
+        if(row==3) row=2;
+        //System.out.println("Row:" + row);
+        System.out.print("Cell [x/y]: [" + col + "/" + row + "]");
+        
+        //Berechnung der Koordinaten innerhalb der Zelle
+        this.xCell = x-this.menu.getMainFrame().getPlayField().getBorderDist()-col*this.menu.getMainFrame().getPlayField().getPointDist();
+        //System.out.println("xCell: " + xCell);
+        this.yCell = y-this.menu.getMainFrame().getPlayField().getBorderDist()-row*this.menu.getMainFrame().getPlayField().getPointDist();
+        //System.out.println("yCell: " + yCell);
+        System.out.println("Coords: " + this.xCell + "/" + this.yCell);
+        
+        manipulateModel(col,row,xCell,yCell);
+        
+    }
+    
+    public void manipulateModel(int x, int y, int xC, int yC){
+        if(xC<=5) this.map.setBorderW(x,y,Owner.HOST);
+        else if (yC<=5) this.map.setBorderN(x,y,Owner.HOST);
+        else if (xC >= 95) this.map.setBorderE(x,y,Owner.HOST);
+        else if (yC >= 95) this.map.setBorderS(x,y,Owner.HOST);
         
         
+        this.map.printMap();
     }
 
     public void addMenuListeners(){
@@ -99,7 +129,7 @@ public class DnBController {
         public void mouseEntered(MouseEvent e){}
         public void mouseClicked(MouseEvent e){
             System.out.println("that was a click! at x: " + e.getX() + " and y: " + e.getY());
-            calculateElement(e.getX(),e.getY());
+            evaluateClick(e.getX(),e.getY());
         }
         
     }

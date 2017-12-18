@@ -62,7 +62,7 @@ public class PlayPanel extends JPanel {
         for(int y = 0; y <= pointsY;y++){
             for(int x = 0; x <= pointsX;x++){
                 
-                g.fillOval(borderDist + x*pointDist, borderDist+y*pointDist, pointDia, pointDia);
+                g.fillOval(borderDist + x*pointDist-pointDia/2, borderDist+y*pointDist-pointDia/2, pointDia, pointDia);
             
             }
         
@@ -99,15 +99,15 @@ public class PlayPanel extends JPanel {
         g.drawLine(x1,y1,x2,y2);
     
     }
-    // +20 will nu links und rechts de schwarzi rand isch
+    
     public int getSizeX(){
         
-        return (pointsX-1)*pointDist + 2*borderDist+20;
+        return (pointsX-1)*pointDist + 2*borderDist;
     
     }
 
     public int getSizeY() {
-        return (pointsY-1)*pointDist + 2*borderDist+20;
+        return (pointsY-1)*pointDist + 2*borderDist;
     }
 
     public int getPointDist() {

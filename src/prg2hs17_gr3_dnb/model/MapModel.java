@@ -29,10 +29,10 @@ public class MapModel {
             for(int j = 0; j < ysize; j++){
                 tiles[i][j] = new Tile();
                 tiles[i][j].setID("X" + i + "Y" + j);
-                tiles[i][j].setNeighborN((i-1<0) ? null : tiles[i-1][j]);
-                tiles[i][j].setNeighborE((j+1>=ysize) ? null : tiles[i][j+1]);
-                tiles[i][j].setNeighborS((i+1>=xsize) ? null : tiles[i+1][j]);
-                tiles[i][j].setNeighborW((j-1<0) ? null : tiles[i][j-1]);
+                tiles[i][j].setNeighborN((j-1<0) ? null : tiles[j-1][i]);
+                tiles[i][j].setNeighborE((i+1>=xsize) ? null : tiles[j][i+1]);
+                tiles[i][j].setNeighborS((j+1>=ysize) ? null : tiles[j+1][i]);
+                tiles[i][j].setNeighborW((i-1<0) ? null : tiles[j][i-1]);
                 
                 
             }
@@ -42,18 +42,30 @@ public class MapModel {
     
     public void setBorderN(int x, int y, Owner owner){
         this.tiles[x][y].setBorderN(owner);
+        if(this.tiles[x][y].getNeighborN() != null){
+            this.tiles[x][y].getNeighborN().setBorderS(owner);
+        }
     }
     
     public void setBorderE(int x, int y, Owner owner){
         this.tiles[x][y].setBorderE(owner);
+        if(this.tiles[x][y].getNeighborE() != null){
+            this.tiles[x][y].getNeighborE().setBorderW(owner);
+        }
     }
     
     public void setBorderS(int x, int y, Owner owner){
         this.tiles[x][y].setBorderS(owner);
+        if(this.tiles[x][y].getNeighborS() != null){
+            this.tiles[x][y].getNeighborS().setBorderN(owner);
+        }
     }
     
     public void setBorderW(int x, int y, Owner owner){
         this.tiles[x][y].setBorderW(owner);
+        if(this.tiles[x][y].getNeighborW() != null){
+            this.tiles[x][y].getNeighborW().setBorderE(owner);
+        }
     }
     
     public void setArea(int x, int y, Owner owner){
@@ -66,7 +78,12 @@ public class MapModel {
         /*
         System.out.print("Area: " + tiles[x][y].getArea());
         System.out.print(" | NN: " + tiles[x][y].getNeighborN());
-        */   
+        */  
+        System.out.print(this.tiles[x][y].getBorderW());
+        System.out.print(this.tiles[x][y].getBorderN());
+        System.out.print(this.tiles[x][y].getBorderE());
+        System.out.print(this.tiles[x][y].getBorderS());
+        
     }
     
     public void printMap(){
@@ -75,7 +92,7 @@ public class MapModel {
             for(int j = 0; j < ysize; j++){
                 
                 printTile(i,j);
-                //System.out.println("");
+                System.out.println("");
             }
             System.out.println("");
                     
