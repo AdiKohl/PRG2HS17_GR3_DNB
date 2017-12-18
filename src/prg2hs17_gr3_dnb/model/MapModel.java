@@ -42,34 +42,33 @@ public class MapModel {
     
     public void setBorderN(int x, int y, Owner owner){
         this.tiles[x][y].setBorderN(owner);
-        if(this.tiles[x][y].getNeighborN() != null){
-            this.tiles[x][y].getNeighborN().setBorderS(owner);
-        }
+        
     }
     
     public void setBorderE(int x, int y, Owner owner){
         this.tiles[x][y].setBorderE(owner);
-        if(this.tiles[x][y].getNeighborE() != null){
-            this.tiles[x][y].getNeighborE().setBorderW(owner);
-        }
+        
     }
     
     public void setBorderS(int x, int y, Owner owner){
         this.tiles[x][y].setBorderS(owner);
-        if(this.tiles[x][y].getNeighborS() != null){
-            this.tiles[x][y].getNeighborS().setBorderN(owner);
-        }
+                
     }
     
     public void setBorderW(int x, int y, Owner owner){
         this.tiles[x][y].setBorderW(owner);
-        if(this.tiles[x][y].getNeighborW() != null){
-            this.tiles[x][y].getNeighborW().setBorderE(owner);
-        }
+        
     }
     
     public void setArea(int x, int y, Owner owner){
         this.tiles[x][y].setArea(owner);
+    }
+    
+    public boolean checkArea(int x, int y){
+        if(this.tiles[x][y].getBorderW()!=Owner.VOID && this.tiles[x][y].getBorderN()!=Owner.VOID && this.tiles[x][y].getBorderE()!=Owner.VOID && this.tiles[x][y].getBorderS()!=Owner.VOID){
+            return true;
+        }
+        return false;
     }
     
     public void printTile(int x, int y){

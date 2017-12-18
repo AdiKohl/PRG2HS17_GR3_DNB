@@ -24,12 +24,14 @@ public class DnBController {
     private MapModel map;
     private MenuFrame menu;
     
-    private int sizeX;
-    private int sizeY;
+    //private int sizeX;
+    //private int sizeY;
     private int row;
     private int col;
     private int xCell;
     private int yCell;
+    private final int tol = 10;
+    private int bor;
     
 
     public DnBController() {
@@ -48,29 +50,78 @@ public class DnBController {
         this.row = (y-this.menu.getMainFrame().getPlayField().getBorderDist())/this.menu.getMainFrame().getPlayField().getPointDist();
         if(row==3) row=2;
         //System.out.println("Row:" + row);
-        System.out.print("Cell [x/y]: [" + col + "/" + row + "]");
+        System.out.print("Cell: [" + col + "/" + row + "]");
         
         //Berechnung der Koordinaten innerhalb der Zelle
         this.xCell = x-this.menu.getMainFrame().getPlayField().getBorderDist()-col*this.menu.getMainFrame().getPlayField().getPointDist();
         //System.out.println("xCell: " + xCell);
         this.yCell = y-this.menu.getMainFrame().getPlayField().getBorderDist()-row*this.menu.getMainFrame().getPlayField().getPointDist();
         //System.out.println("yCell: " + yCell);
-        System.out.println("Coords: " + this.xCell + "/" + this.yCell);
+        System.out.print("Coords: " + this.xCell + "/" + this.yCell);
         
-        manipulateModel(col,row,xCell,yCell);
+        //Enstprechende Border-Wahl: W=1,N=2,E=3,S=4, Keine = 0;
+        if(xCell<=tol) bor = 1;
+        else if (yCell<=tol) bor = 2;
+        else if (xCell >= this.menu.getMainFrame().getPlayField().getPointDist()-tol) bor = 3;
+        else if (yCell >= this.menu.getMainFrame().getPlayField().getPointDist()-tol) bor = 4;
+        else bor = 0;
+        
+        System.out.println("Border: " + this.bor);
+        
+        
+        
+        
+        
+        manipulateModel(col,row,bor);
+        drawView(col,row,bor);
         
     }
     
-    public void manipulateModel(int x, int y, int xC, int yC){
-        if(xC<=5) this.map.setBorderW(x,y,Owner.HOST);
-        else if (yC<=5) this.map.setBorderN(x,y,Owner.HOST);
-        else if (xC >= 95) this.map.setBorderE(x,y,Owner.HOST);
-        else if (yC >= 95) this.map.setBorderS(x,y,Owner.HOST);
+    public void manipulateModel(int x, int y, int b){
+        if(b==1){
+            this.map.setBorderW(x,y,Owner.HOST);
+            if(this.map.checkArea(x, y)) this.map.setArea(x, y, Owner.HOST);
+            if(x>0){
+                this.map.setBorderE(x-1,y,Owner.HOST);
+                if(this.map.checkArea(x-1, y)) this.map.setArea(x-1, y, Owner.HOST);
+            }
+        }
         
+        else if (b==2){
+            this.map.setBorderN(x,y,Owner.HOST);
+            if(this.map.checkArea(x, y)) this.map.setArea(x, y, Owner.HOST);
+            if(y>0){
+                this.map.setBorderS(x,y-1,Owner.HOST);
+                if(this.map.checkArea(x, y-1)) this.map.setArea(x, y-1, Owner.HOST);
+            }   
+        }
+        
+        else if (b==3){
+            this.map.setBorderE(x,y,Owner.HOST);
+            if(this.map.checkArea(x, y)) this.map.setArea(x, y, Owner.HOST);
+            if(x<2){
+                this.map.setBorderW(x+1,y,Owner.HOST);
+                if(this.map.checkArea(x+1, y))this.map.setArea(x+1, y, Owner.HOST);
+            }    
+        }
+        
+        else if (b==4){
+            this.map.setBorderS(x,y,Owner.HOST);
+            if(this.map.checkArea(x, y)) this.map.setArea(x, y, Owner.HOST);
+            if(y<2){
+                this.map.setBorderN(x,y+1,Owner.HOST);
+                if(this.map.checkArea(x, y+1)) this.map.setArea(x, y+1, Owner.HOST);
+            }
+             
+        }
         
         this.map.printMap();
     }
 
+    public void drawView(int x, int y, int b){
+        this.menu.getMainFrame().getPlayField().drawBorder(x,y,b,Owner.HOST);
+    }
+    
     public void addMenuListeners(){
         this.menu.setCreditsListener(new ButtonCreditsListener());
         this.menu.setSingleplayerListener(new ButtonSingleplayerListener());
