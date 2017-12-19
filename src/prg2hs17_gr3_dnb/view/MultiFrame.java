@@ -73,12 +73,12 @@ public class MultiFrame extends JFrame {
     }
     
     public void setHostListener(ActionListener l){
-        this.backToMenu.addActionListener(l);
+        this.host.addActionListener(l);
     }
         
         
     public void setJoinListener(ActionListener l){
-        this.backToMenu.addActionListener(l);
+        this.join.addActionListener(l);
     }
     
     public void setBackToMenuListener(ActionListener l){
