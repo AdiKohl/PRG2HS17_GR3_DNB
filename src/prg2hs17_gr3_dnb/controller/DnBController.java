@@ -84,8 +84,9 @@ public class DnBController {
     }
     
     public void manipulateModel(int x, int y, int b, Owner o){
-        areaSet = false;
+        
         if(b==1){
+            areaSet = false;
             this.map.setBorderW(x,y,o);
             if(this.map.checkArea(x, y)){ this.map.setArea(x, y, o); areaSet=true;}
             
@@ -96,6 +97,7 @@ public class DnBController {
         }
         
         else if (b==2){
+            areaSet = false;
             this.map.setBorderN(x,y,o);
             if(this.map.checkArea(x, y)){ this.map.setArea(x, y, o); areaSet=true;}
             if(y>0){
@@ -105,6 +107,7 @@ public class DnBController {
         }
         
         else if (b==3){
+            areaSet = false;
             this.map.setBorderE(x,y,o);
             if(this.map.checkArea(x, y)){ this.map.setArea(x, y, o); areaSet=true;}
             if(x<2){
@@ -114,6 +117,7 @@ public class DnBController {
         }
         
         else if (b==4){
+            areaSet = false;
             this.map.setBorderS(x,y,o);
             if(this.map.checkArea(x, y)){ this.map.setArea(x, y, o); areaSet=true;}
             if(y<2){
@@ -155,10 +159,12 @@ public class DnBController {
     }
     
     public void whosTurn(int x, int y, int b, Owner o){
-        if (b!=0 && !areaSet){
+        if (b!=0 && areaSet==false){
             if(this.map.getBorder(x,y,b)==Owner.VOID && o == Owner.GUEST) this.playerPlaying = Owner.HOST;
             else if(this.map.getBorder(x,y,b)==Owner.VOID && o == Owner.HOST) this.playerPlaying = Owner.GUEST;
+            
         }
+        
         
     }
     public void whosTurn(){
