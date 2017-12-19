@@ -147,7 +147,7 @@ public class DnBController {
             }
             else {
                 //put label to guest as winner
-                this.menu.getMainFrame().setEndtext("ENEMY WON!");
+                this.menu.getMainFrame().setEndtext("OPONENT WON!");
             }
         }
         
