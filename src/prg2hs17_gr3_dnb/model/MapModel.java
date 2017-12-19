@@ -13,6 +13,8 @@ public class MapModel {
     
     int xsize;
     int ysize;
+    int pointsGuest = 0;
+    int pointsHost = 0;
     Tile[][] tiles;
 
     public MapModel() {
@@ -78,6 +80,8 @@ public class MapModel {
     
     public void setArea(int x, int y, Owner owner){
         this.tiles[x][y].setArea(owner);
+        if (owner == Owner.GUEST) pointsGuest++;
+        if (owner == Owner.HOST) pointsHost++;
     }
     
     public Owner getArea(int x, int y){
@@ -90,6 +94,16 @@ public class MapModel {
         }
         return false;
     }
+
+    public int getPointsGuest() {
+        return pointsGuest;
+    }
+
+    public int getPointsHost() {
+        return pointsHost;
+    }
+    
+    
     
     public void printTile(int x, int y){
         
