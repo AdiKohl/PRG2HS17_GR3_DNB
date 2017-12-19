@@ -9,6 +9,10 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.net.InetAddress;
+import java.net.ServerSocket;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -31,6 +35,8 @@ public class MultiFrame extends JFrame {
     private JPanel panelMain = new JPanel();
     private final JButton backToMenu = new JButton("Back to menu");
     private JPanel panelSouth = new JPanel();
+    private String myIp;
+    private int myPort;
     
     
     
@@ -48,6 +54,17 @@ public class MultiFrame extends JFrame {
         add(title, BorderLayout.NORTH);
         add(panelSouth, BorderLayout.SOUTH);
         
+        try {
+        ServerSocket ss = new ServerSocket(0);
+                    myPort = ss.getLocalPort();
+                    InetAddress ipAddress = InetAddress.getLocalHost();
+                    myIp = ipAddress.getHostAddress();
+                    //s = ss.accept();
+                    //in = new ObjectInputStream(s.getInputStream());
+        }catch (IOException e) {
+                    e.printStackTrace();
+                }
+        
         
         panelMain.add(host);        
         panelMain.add(join);
@@ -62,6 +79,7 @@ public class MultiFrame extends JFrame {
         title.setBorder(BorderFactory.createEmptyBorder(20, 140, 0, 0));
         title.setFont(new Font("SanSerif",Font.BOLD ,50));
         ownIP.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
+        ownIP.setText(myIp + " : " + myPort);
       
         
         
