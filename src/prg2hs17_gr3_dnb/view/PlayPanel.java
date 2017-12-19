@@ -143,6 +143,7 @@ public class PlayPanel extends JPanel {
     }
     
     public void drawBox(int x, int y, Owner o){
+        
         switch(o){
             case GUEST:
                 boxes.add(new Box(borderDist + (x)*pointDist + pointDia, borderDist + (y)*pointDist+pointDia, pointDist-2*pointDia,pointDist-2*pointDia, Color.RED));
