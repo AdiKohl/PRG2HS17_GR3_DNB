@@ -130,6 +130,21 @@ public class DnBController {
                 this.menu.getMainFrame().getPlayField().drawBox(i,j,this.map.getArea(i,j));
             }
         }
+        // Update Score
+        this.menu.getMainFrame().setHostpoints(this.map.getPointsHost());
+        this.menu.getMainFrame().setGuestpoints(this.map.getPointsGuest());
+        
+        // Evaluate Winner
+        if(this.map.getPointsHost()+this.map.getPointsGuest() == 9){
+            if(this.map.getPointsHost() > this.map.getPointsGuest()){
+                //put label to host as winner
+            }
+            else {
+                //put label to guest as winner
+            }
+        }
+        
+        
     }
     
     public void whosTurn(int x, int y, int b){
