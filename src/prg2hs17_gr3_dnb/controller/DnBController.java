@@ -33,11 +33,12 @@ public class DnBController {
     private final int tol = 10;
     private int bor;
     private Owner playerPlaying;
+    private boolean areaSet = false;
     
 
     public DnBController() {
         
-        this.playerPlaying = Owner.HOST;
+        this.playerPlaying = Owner.GUEST;
         this.map = new MapModel();
         //EventQueue.invokeLater(() -> new MenuFrame());
         this.menu = new MenuFrame();
@@ -83,39 +84,41 @@ public class DnBController {
     }
     
     public void manipulateModel(int x, int y, int b, Owner o){
+        areaSet = false;
         if(b==1){
             this.map.setBorderW(x,y,o);
-            if(this.map.checkArea(x, y)) this.map.setArea(x, y, o);
+            if(this.map.checkArea(x, y)){ this.map.setArea(x, y, o); areaSet=true;}
+            
             if(x>0){
                 this.map.setBorderE(x-1,y,o);
-                if(this.map.checkArea(x-1, y)) this.map.setArea(x-1, y, o);
+                if(this.map.checkArea(x-1, y)){ this.map.setArea(x-1, y, o); areaSet=true;}
             }
         }
         
         else if (b==2){
             this.map.setBorderN(x,y,o);
-            if(this.map.checkArea(x, y)) this.map.setArea(x, y, o);
+            if(this.map.checkArea(x, y)){ this.map.setArea(x, y, o); areaSet=true;}
             if(y>0){
                 this.map.setBorderS(x,y-1,o);
-                if(this.map.checkArea(x, y-1)) this.map.setArea(x, y-1, o);
+                if(this.map.checkArea(x, y-1)){ this.map.setArea(x, y-1, o); areaSet=true;}
             }   
         }
         
         else if (b==3){
             this.map.setBorderE(x,y,o);
-            if(this.map.checkArea(x, y)) this.map.setArea(x, y, o);
+            if(this.map.checkArea(x, y)){ this.map.setArea(x, y, o); areaSet=true;}
             if(x<2){
                 this.map.setBorderW(x+1,y,o);
-                if(this.map.checkArea(x+1, y))this.map.setArea(x+1, y, o);
+                if(this.map.checkArea(x+1, y)){this.map.setArea(x+1, y, o); areaSet=true;}
             }    
         }
         
         else if (b==4){
             this.map.setBorderS(x,y,o);
-            if(this.map.checkArea(x, y)) this.map.setArea(x, y, o);
+            if(this.map.checkArea(x, y)){ this.map.setArea(x, y, o); areaSet=true;}
             if(y<2){
                 this.map.setBorderN(x,y+1,o);
-                if(this.map.checkArea(x, y+1)) this.map.setArea(x, y+1, o);
+                if(this.map.checkArea(x, y+1)){ this.map.setArea(x, y+1, o); areaSet=true;}
             }
              
         }
@@ -152,9 +155,10 @@ public class DnBController {
     }
     
     public void whosTurn(int x, int y, int b, Owner o){
-        if(this.map.getBorder(x,y,b)==Owner.VOID && o == Owner.GUEST) this.playerPlaying = Owner.HOST;
-        if(this.map.getBorder(x,y,b)==Owner.VOID && o == Owner.HOST) this.playerPlaying = Owner.GUEST;
-        
+        if (b!=0 && !areaSet){
+            if(this.map.getBorder(x,y,b)==Owner.VOID && o == Owner.GUEST) this.playerPlaying = Owner.HOST;
+            else if(this.map.getBorder(x,y,b)==Owner.VOID && o == Owner.HOST) this.playerPlaying = Owner.GUEST;
+        }
         
     }
     public void whosTurn(){

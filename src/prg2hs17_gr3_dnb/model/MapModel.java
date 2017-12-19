@@ -89,7 +89,7 @@ public class MapModel {
     }
     
     public boolean checkArea(int x, int y){
-        if(this.tiles[x][y].getBorderW()!=Owner.VOID && this.tiles[x][y].getBorderN()!=Owner.VOID && this.tiles[x][y].getBorderE()!=Owner.VOID && this.tiles[x][y].getBorderS()!=Owner.VOID){
+        if((this.tiles[x][y].getBorderW()!=Owner.VOID && this.tiles[x][y].getBorderN()!=Owner.VOID && this.tiles[x][y].getBorderE()!=Owner.VOID && this.tiles[x][y].getBorderS()!=Owner.VOID) && this.tiles[x][y].getArea()==Owner.VOID){
             return true;
         }
         return false;
