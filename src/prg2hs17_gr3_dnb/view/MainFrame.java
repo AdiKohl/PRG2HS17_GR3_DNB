@@ -84,14 +84,14 @@ public class MainFrame extends JFrame{
         this.backToMenu.addActionListener(l);
     }
     
-    public void setHostpoints(String points){
-        this.hostPoints.setText("Own points: ");
-        this.hostPoints.setText(hostPoints + points);
+    public void setHostpoints(int points){
+        this.hostPoints.setText("Own points: " + points);
+        //this.hostPoints.setText(hostPoints + points);
     }
     
-    public void setGuestpoints(String points){
-        this.guestPoints.setText("Opponent points: ");
-        this.guestPoints.setText(hostPoints + points);
+    public void setGuestpoints(int points){
+        this.guestPoints.setText("Opponent points: " + points);
+        //this.guestPoints.setText(hostPoints + points);
     }
     
 
