@@ -46,8 +46,26 @@ public class PlayPanel extends JPanel {
             this.color = color;
         }
     }
+    
+    private static class Box {
+
+        final int x1;
+        final int y1;
+        final int wid;
+        final int hei;
+        final Color color;
+
+        public Box(int x1, int y1, int wid, int hei, Color color) {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.wid = wid;
+            this.hei = hei;
+            this.color = color;
+        }
+    }
 
     private final LinkedList<Line> lines = new LinkedList<Line>();
+    private final LinkedList<Box> boxes = new LinkedList<Box>();
 
 
     @Override
@@ -56,25 +74,19 @@ public class PlayPanel extends JPanel {
         this.setBackground(Color.white);
 
         setSize(getSizeX(), getSizeY());
+                
+        for (Line line : lines) {
+            g.setColor(line.color);
+            g.drawLine(line.x1, line.y1, line.x2, line.y2);
+        }
+        
+        for (Box box : boxes) {
+            g.setColor(box.color);
+            g.fillRect(box.x1, box.y1, box.wid, box.hei);
+        }
 
         g.setColor(Color.black);
-        /*g.fillOval(30, 30, 20, 20);
-        g.fillOval(130, 30, 20, 20);
-        g.fillOval(230, 30, 20, 20);
-        g.fillOval(330, 30, 20, 20);
-        g.fillOval(30, 130, 20, 20);
-        g.fillOval(130, 130, 20, 20);
-        g.fillOval(230, 130, 20, 20);
-        g.fillOval(330, 130, 20, 20);
-        g.fillOval(30, 230, 20, 20);
-        g.fillOval(130, 230, 20, 20);
-        g.fillOval(230, 230, 20, 20);
-        g.fillOval(330, 230, 20, 20);
-        g.fillOval(30, 330, 20, 20);
-        g.fillOval(130, 330, 20, 20);
-        g.fillOval(230, 330, 20, 20);
-        g.fillOval(330, 330, 20, 20);*/
-
+        
         for (int y = 0; y <= pointsY; y++) {
             for (int x = 0; x <= pointsX; x++) {
 
@@ -84,10 +96,7 @@ public class PlayPanel extends JPanel {
 
         }
 
-        for (Line line : lines) {
-            g.setColor(line.color);
-            g.drawLine(line.x1, line.y1, line.x2, line.y2);
-        }
+        
 
     }
 
@@ -131,6 +140,20 @@ public class PlayPanel extends JPanel {
         }
         repaint();
 
+    }
+    
+    public void drawBox(int x, int y, Owner o){
+        switch(o){
+            case GUEST:
+                boxes.add(new Box(borderDist + (x)*pointDist + pointDia, borderDist + (y)*pointDist+pointDia, pointDist-2*pointDia,pointDist-2*pointDia, Color.RED));
+                break;
+            case HOST:
+                boxes.add(new Box(borderDist + (x)*pointDist + pointDia, borderDist + (y)*pointDist+pointDia, pointDist-2*pointDia,pointDist-2*pointDia, Color.BLUE));
+                break;
+            case VOID:
+                break;
+        }
+        repaint();
     }
 
     /*

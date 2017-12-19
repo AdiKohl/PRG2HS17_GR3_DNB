@@ -42,26 +42,46 @@ public class MapModel {
     
     public void setBorderN(int x, int y, Owner owner){
         this.tiles[x][y].setBorderN(owner);
-        
+    }
+    public Owner getBorderN(int x, int y){
+        return this.tiles[x][y].getBorderN();
     }
     
     public void setBorderE(int x, int y, Owner owner){
-        this.tiles[x][y].setBorderE(owner);
-        
+        this.tiles[x][y].setBorderE(owner);    
+    }
+    public Owner getBorderE(int x, int y){
+        return this.tiles[x][y].getBorderE();
     }
     
     public void setBorderS(int x, int y, Owner owner){
-        this.tiles[x][y].setBorderS(owner);
-                
+        this.tiles[x][y].setBorderS(owner);         
+    }
+    public Owner getBorderS(int x, int y){
+        return this.tiles[x][y].getBorderS();
     }
     
     public void setBorderW(int x, int y, Owner owner){
-        this.tiles[x][y].setBorderW(owner);
+        this.tiles[x][y].setBorderW(owner);    
+    }
+    public Owner getBorderW(int x, int y){
+        return this.tiles[x][y].getBorderW();
+    }
+    
+    public Owner getBorder(int x, int y, int b) {
         
+            if (b==1)return getBorderW(x,y);
+            else if (b==2) return getBorderN(x,y);
+            else if (b==3) return getBorderE(x,y);
+            else return getBorderS(x,y);
     }
     
     public void setArea(int x, int y, Owner owner){
         this.tiles[x][y].setArea(owner);
+    }
+    
+    public Owner getArea(int x, int y){
+        return this.tiles[x][y].getArea();
     }
     
     public boolean checkArea(int x, int y){

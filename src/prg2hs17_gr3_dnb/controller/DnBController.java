@@ -75,6 +75,7 @@ public class DnBController {
         manipulateModel(col,row,bor);
         drawView(col,row,bor);
         
+        
     }
     
     public void manipulateModel(int x, int y, int b){
@@ -119,7 +120,14 @@ public class DnBController {
     }
 
     public void drawView(int x, int y, int b){
-        this.menu.getMainFrame().getPlayField().drawBorder(x,y,b,Owner.HOST);
+        
+        this.menu.getMainFrame().getPlayField().drawBorder(x,y,b, this.map.getBorder(x,y,b));
+        
+        for (int i = 0; i < this.menu.getMainFrame().getPlayField().getPointsX()-1; i++) {
+            for (int j = 0; j < this.menu.getMainFrame().getPlayField().getPointsY()-1; j++) {
+                this.menu.getMainFrame().getPlayField().drawBox(i,j,this.map.getArea(i,j));
+            }
+        }
     }
     
     public void addMenuListeners(){
