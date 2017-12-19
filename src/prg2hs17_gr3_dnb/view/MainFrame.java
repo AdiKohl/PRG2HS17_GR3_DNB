@@ -28,6 +28,7 @@ public class MainFrame extends JFrame{
     private PlayPanel playField = new PlayPanel();
     private JLabel hostPoints = new JLabel("Own points: ");
     private JLabel guestPoints = new JLabel("Opponent points: ");
+    private JLabel endText = new JLabel();
     private JPanel panelNorth = new JPanel();
     private JPanel panelEast = new JPanel();
     private JPanel panelSouth = new JPanel();
@@ -51,8 +52,12 @@ public class MainFrame extends JFrame{
         add(panelSouth, BorderLayout.SOUTH);
         add(panelWest, BorderLayout.WEST);
         
+        panelSouth.setLayout(new GridLayout(1,2,160,0));
+        panelSouth.add(endText);
+        endText.setFont(new Font("SanSerif",Font.BOLD ,20));
+        endText.setForeground(Color.red);
         panelSouth.add(backToMenu);
-        panelSouth.setBorder(BorderFactory.createEmptyBorder(0, 640, 0, 0));
+        panelSouth.setBorder(BorderFactory.createEmptyBorder(0, 320, 80, 40));
         
         panelNorth.setLayout(new GridLayout(1,2));
         panelNorth.add(hostPoints);
@@ -61,8 +66,11 @@ public class MainFrame extends JFrame{
         guestPoints.setFont(new Font("SanSerif",Font.BOLD ,20));
         
         
+                
+        
         panelNorth.setBorder(BorderFactory.createEmptyBorder(100, 140, 100, 0));
         panelWest.setBorder(BorderFactory.createEmptyBorder(0, 200, 0, 0));
+        //panelSouth.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         playField.setBorder(BorderFactory.createMatteBorder(10, 10, 10, 10, Color.black));
         
         setVisible(true);
@@ -92,6 +100,10 @@ public class MainFrame extends JFrame{
     public void setGuestpoints(int points){
         this.guestPoints.setText("Opponent points: " + points);
         //this.guestPoints.setText(hostPoints + points);
+    }
+    
+    public void setEndtext(String message){
+        this.endText.setText(message);
     }
     
 
