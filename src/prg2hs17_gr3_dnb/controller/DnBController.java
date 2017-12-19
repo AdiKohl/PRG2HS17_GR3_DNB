@@ -36,11 +36,12 @@ public class DnBController {
     
 
     public DnBController() {
+        
+        this.playerPlaying = Owner.HOST;
         this.map = new MapModel();
         //EventQueue.invokeLater(() -> new MenuFrame());
         this.menu = new MenuFrame();
         addMenuListeners();
-        this.playerPlaying = Owner.HOST;
         //this.map.setArea(2,1,Owner.GUEST);
     }
     
@@ -68,52 +69,53 @@ public class DnBController {
         else if (yCell >= this.menu.getMainFrame().getPlayField().getPointDist()-tol) bor = 4;
         else bor = 0;
         
-        System.out.println("Border: " + this.bor);
+        System.out.println(" Border: " + this.bor + " (That was a " + this.map.getBorder(col, row, bor) + "-Border!)");
         
         
         
         
-        whosTurn(col,row,bor);
-        manipulateModel(col,row,bor);
+        //whosTurn(col,row,bor);
+        whosTurn();
+        manipulateModel(col,row,bor,playerPlaying);
         drawView(col,row,bor);
         
         
     }
     
-    public void manipulateModel(int x, int y, int b){
+    public void manipulateModel(int x, int y, int b, Owner o){
         if(b==1){
-            this.map.setBorderW(x,y,playerPlaying);
-            if(this.map.checkArea(x, y)) this.map.setArea(x, y, playerPlaying);
+            this.map.setBorderW(x,y,o);
+            if(this.map.checkArea(x, y)) this.map.setArea(x, y, o);
             if(x>0){
-                this.map.setBorderE(x-1,y,playerPlaying);
-                if(this.map.checkArea(x-1, y)) this.map.setArea(x-1, y, playerPlaying);
+                this.map.setBorderE(x-1,y,o);
+                if(this.map.checkArea(x-1, y)) this.map.setArea(x-1, y, o);
             }
         }
         
         else if (b==2){
-            this.map.setBorderN(x,y,playerPlaying);
-            if(this.map.checkArea(x, y)) this.map.setArea(x, y, playerPlaying);
+            this.map.setBorderN(x,y,o);
+            if(this.map.checkArea(x, y)) this.map.setArea(x, y, o);
             if(y>0){
-                this.map.setBorderS(x,y-1,playerPlaying);
-                if(this.map.checkArea(x, y-1)) this.map.setArea(x, y-1, playerPlaying);
+                this.map.setBorderS(x,y-1,o);
+                if(this.map.checkArea(x, y-1)) this.map.setArea(x, y-1, o);
             }   
         }
         
         else if (b==3){
-            this.map.setBorderE(x,y,playerPlaying);
-            if(this.map.checkArea(x, y)) this.map.setArea(x, y, playerPlaying);
+            this.map.setBorderE(x,y,o);
+            if(this.map.checkArea(x, y)) this.map.setArea(x, y, o);
             if(x<2){
-                this.map.setBorderW(x+1,y,playerPlaying);
-                if(this.map.checkArea(x+1, y))this.map.setArea(x+1, y, playerPlaying);
+                this.map.setBorderW(x+1,y,o);
+                if(this.map.checkArea(x+1, y))this.map.setArea(x+1, y, o);
             }    
         }
         
         else if (b==4){
-            this.map.setBorderS(x,y,playerPlaying);
-            if(this.map.checkArea(x, y)) this.map.setArea(x, y, playerPlaying);
+            this.map.setBorderS(x,y,o);
+            if(this.map.checkArea(x, y)) this.map.setArea(x, y, o);
             if(y<2){
-                this.map.setBorderN(x,y+1,playerPlaying);
-                if(this.map.checkArea(x, y+1)) this.map.setArea(x, y+1, playerPlaying);
+                this.map.setBorderN(x,y+1,o);
+                if(this.map.checkArea(x, y+1)) this.map.setArea(x, y+1, o);
             }
              
         }
@@ -150,6 +152,12 @@ public class DnBController {
     public void whosTurn(int x, int y, int b){
         if(this.map.getBorder(x,y,b)==Owner.VOID && this.playerPlaying == Owner.GUEST) this.playerPlaying = Owner.HOST;
         if(this.map.getBorder(x,y,b)==Owner.VOID && this.playerPlaying == Owner.HOST) this.playerPlaying = Owner.GUEST;
+        
+        
+    }
+    public void whosTurn(){
+        if(this.playerPlaying == Owner.GUEST) this.playerPlaying = Owner.HOST;
+        if(this.playerPlaying == Owner.HOST) this.playerPlaying = Owner.GUEST;
         
         
     }
