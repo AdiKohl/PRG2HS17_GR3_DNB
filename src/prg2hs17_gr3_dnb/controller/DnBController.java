@@ -177,6 +177,7 @@ public class DnBController {
         menu.getMainFrame().setVisible(true);
         menu.setVisible(false);
         addSingleListener();
+        System.out.println("Singleplayer!");
         }
     }
     
@@ -186,6 +187,7 @@ public class DnBController {
         menu.getMultiFrame().setVisible(true);
         menu.setVisible(false);
         addMultiListener();
+        System.out.println("Multiplayer!");
         }
     }
     
@@ -195,6 +197,7 @@ public class DnBController {
         menu.getCreditFrame().setVisible(true);
         //menu.setVisible(false);
         addCreditListener();
+        System.out.println("Credits!");
         }
     }
     
