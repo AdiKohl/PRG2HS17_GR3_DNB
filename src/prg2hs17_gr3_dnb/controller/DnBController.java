@@ -32,7 +32,7 @@ public class DnBController {
     private int yCell;
     private final int tol = 10;
     private int bor;
-    private Owner playerPlaying = Owner.HOST;
+    private Owner playerPlaying;
     
 
     public DnBController() {
@@ -40,6 +40,7 @@ public class DnBController {
         //EventQueue.invokeLater(() -> new MenuFrame());
         this.menu = new MenuFrame();
         addMenuListeners();
+        this.playerPlaying = Owner.HOST;
         //this.map.setArea(2,1,Owner.GUEST);
     }
     
@@ -142,12 +143,20 @@ public class DnBController {
     public void addMenuListeners(){
         this.menu.setCreditsListener(new ButtonCreditsListener());
         this.menu.setSingleplayerListener(new ButtonSingleplayerListener());
+        this.menu.setMultiplayerListener(new ButtonMultiplayerListener());
         this.menu.setQuitListener(new ButtonQuitListener());
     }
     
     public void addSingleListener() {
         menu.getMainFrame().setMouseListener(new MousePFListener());
         menu.getMainFrame().setBackToMenuListener(new ButtonSingleToMenuListener());
+    }
+    
+    public void addMultiListener() {
+        //menu.getMainFrame().setMouseListener(new MousePFListener());
+        menu.getMultiFrame().setBackToMenuListener(new ButtonMultiToMenuListener());
+        menu.getMultiFrame().setJoinListener(new ButtonMultiJoinListener());
+        menu.getMultiFrame().setHostListener(new ButtonMultiHostListener());
     }
     
     public void addCreditListener(){
@@ -164,16 +173,25 @@ public class DnBController {
     
     class ButtonSingleplayerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        menu.setMainFrame(new MainFrame());
+        if(menu.getMainFrame()==null) menu.setMainFrame(new MainFrame());
         menu.getMainFrame().setVisible(true);
         menu.setVisible(false);
         addSingleListener();
         }
     }
     
+    class ButtonMultiplayerListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        if(menu.getMultiFrame()==null) menu.setMultiFrame(new MultiFrame());
+        menu.getMultiFrame().setVisible(true);
+        menu.setVisible(false);
+        addMultiListener();
+        }
+    }
+    
     class ButtonCreditsListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        menu.setCreditFrame(new Credits());
+        if(menu.getCreditFrame()==null)menu.setCreditFrame(new Credits());
         menu.getCreditFrame().setVisible(true);
         //menu.setVisible(false);
         addCreditListener();
@@ -208,6 +226,28 @@ public class DnBController {
         menu.setVisible(true);
         }
     }
+    
+    
+/* MULTIPLAYER MENU LISTENERS */
+    class ButtonMultiToMenuListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        menu.getMultiFrame().setVisible(false);
+        menu.setVisible(true);
+        }
+    }
+
+    class ButtonMultiHostListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        //Do Stuff here
+        }
+    } 
+
+    class ButtonMultiJoinListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        //Do Stuff here
+        System.out.println("Joined!");
+        }
+    } 
     
 /* CREDITS ACTION LISTENER */
 

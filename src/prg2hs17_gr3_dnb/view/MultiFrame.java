@@ -60,7 +60,7 @@ public class MultiFrame extends JFrame {
         
         panelMain.setBorder(BorderFactory.createEmptyBorder(140, 80, 160, 80));
         title.setBorder(BorderFactory.createEmptyBorder(20, 140, 0, 0));
-        title.setFont(new Font("Serif",Font.BOLD ,50));
+        title.setFont(new Font("SanSerif",Font.BOLD ,50));
         ownIP.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
       
         

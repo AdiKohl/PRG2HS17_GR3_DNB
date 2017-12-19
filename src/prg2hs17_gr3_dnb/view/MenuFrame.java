@@ -31,6 +31,7 @@ public class MenuFrame extends JFrame{
     private final JPanel panel = new JPanel();
     private final JLabel label = new JLabel("Main Menu");
     private MainFrame mainFrame;
+    private MultiFrame multiFrame;
     private Credits creditFrame;
 
     public MenuFrame() {
@@ -78,6 +79,10 @@ public class MenuFrame extends JFrame{
         this.singleplayer.addActionListener(l);
     }
     
+    public void setMultiplayerListener(ActionListener l){
+        this.multiplayer.addActionListener(l);
+    }
+    
     public void setQuitListener(ActionListener l){
         this.quit.addActionListener(l);
     }
@@ -93,7 +98,14 @@ public class MenuFrame extends JFrame{
     public void setMainFrame(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
     }
+    
+    public MultiFrame getMultiFrame() {
+        return multiFrame;
+    }
 
+    public void setMultiFrame(MultiFrame multiFrame) {
+        this.multiFrame = multiFrame;
+    }
     
     public Credits getCreditFrame() {
         return creditFrame;
