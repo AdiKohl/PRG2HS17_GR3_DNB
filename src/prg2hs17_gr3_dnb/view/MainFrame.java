@@ -7,6 +7,8 @@ package prg2hs17_gr3_dnb.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -24,7 +26,8 @@ import javax.swing.WindowConstants;
 public class MainFrame extends JFrame{
     
     private PlayPanel playField = new PlayPanel();
-    private JLabel ownPoints = new JLabel();
+    private JLabel hostPoints = new JLabel("Own points: ");
+    private JLabel guestPoints = new JLabel("Opponent points: ");
     private JPanel panelNorth = new JPanel();
     private JPanel panelEast = new JPanel();
     private JPanel panelSouth = new JPanel();
@@ -51,7 +54,14 @@ public class MainFrame extends JFrame{
         panelSouth.add(backToMenu);
         panelSouth.setBorder(BorderFactory.createEmptyBorder(0, 640, 0, 0));
         
-        panelNorth.setBorder(BorderFactory.createEmptyBorder(0, 0, 200, 0));
+        panelNorth.setLayout(new GridLayout(1,2));
+        panelNorth.add(hostPoints);
+        panelNorth.add(guestPoints);
+        hostPoints.setFont(new Font("SanSerif",Font.BOLD ,20));
+        guestPoints.setFont(new Font("SanSerif",Font.BOLD ,20));
+        
+        
+        panelNorth.setBorder(BorderFactory.createEmptyBorder(100, 140, 100, 0));
         panelWest.setBorder(BorderFactory.createEmptyBorder(0, 200, 0, 0));
         playField.setBorder(BorderFactory.createMatteBorder(10, 10, 10, 10, Color.black));
         
@@ -72,6 +82,16 @@ public class MainFrame extends JFrame{
     
     public void setBackToMenuListener(ActionListener l){
         this.backToMenu.addActionListener(l);
+    }
+    
+    public void setHostpoints(String points){
+        this.hostPoints.setText("Own points: ");
+        this.hostPoints.setText(hostPoints + points);
+    }
+    
+    public void setGuestpoints(String points){
+        this.guestPoints.setText("Opponent points: ");
+        this.guestPoints.setText(hostPoints + points);
     }
     
 
