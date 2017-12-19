@@ -74,8 +74,8 @@ public class DnBController {
         
         
         
-        //whosTurn(col,row,bor);
-        whosTurn();
+        whosTurn(col,row,bor, playerPlaying);
+        //whosTurn();
         manipulateModel(col,row,bor,playerPlaying);
         drawView(col,row,bor);
         
@@ -140,18 +140,20 @@ public class DnBController {
         if(this.map.getPointsHost()+this.map.getPointsGuest() == 9){
             if(this.map.getPointsHost() > this.map.getPointsGuest()){
                 //put label to host as winner
+                this.menu.getMainFrame().setEndtext("YOU WON!");
             }
             else {
                 //put label to guest as winner
+                this.menu.getMainFrame().setEndtext("ENEMY WON!");
             }
         }
         
         
     }
     
-    public void whosTurn(int x, int y, int b){
-        if(this.map.getBorder(x,y,b)==Owner.VOID && this.playerPlaying == Owner.GUEST) this.playerPlaying = Owner.HOST;
-        if(this.map.getBorder(x,y,b)==Owner.VOID && this.playerPlaying == Owner.HOST) this.playerPlaying = Owner.GUEST;
+    public void whosTurn(int x, int y, int b, Owner o){
+        if(this.map.getBorder(x,y,b)==Owner.VOID && o == Owner.GUEST) this.playerPlaying = Owner.HOST;
+        if(this.map.getBorder(x,y,b)==Owner.VOID && o == Owner.HOST) this.playerPlaying = Owner.GUEST;
         
         
     }
