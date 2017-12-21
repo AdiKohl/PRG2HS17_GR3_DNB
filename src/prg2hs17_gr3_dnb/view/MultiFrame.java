@@ -104,9 +104,9 @@ public class MultiFrame extends JFrame {
     }
     
     public int getPort(){
-        String ports = writePort.getText(); //Eingabefeld Port hinzufügen
-        int port = Integer.parseInt(ports);
-        return port;    
+        //String ports = writePort.getText(); //Eingabefeld Port hinzufügen
+        //int port = Integer.parseInt(ports);
+        return 3010;    
     }
     
     public String getIP(){
