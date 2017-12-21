@@ -31,7 +31,7 @@ public class MultiFrame extends JFrame {
     private final JButton host = new JButton("Host");
     private final JButton join = new JButton("Join");
     private JLabel ownIP = new JLabel("own IP adress");
-    private JTextField writeIP = new JTextField();
+    public JTextField writeIP = new JTextField();
     private JPanel panelMain = new JPanel();
     private final JButton backToMenu = new JButton("Back to menu");
     private JPanel panelSouth = new JPanel();
@@ -101,6 +101,17 @@ public class MultiFrame extends JFrame {
     
     public void setBackToMenuListener(ActionListener l){
         this.backToMenu.addActionListener(l);
+    }
+    
+    public int getPort(){
+        String ports = writePort.getText(); //Eingabefeld Port hinzufügen
+        int port = Integer.parseInt(ports);
+        return port;    
+    }
+    
+    public String getIP(){
+        String ip = writeIP.getText();
+        return ip;
     }
     
     

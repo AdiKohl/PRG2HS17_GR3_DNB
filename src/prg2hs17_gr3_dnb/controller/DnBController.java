@@ -276,13 +276,13 @@ public class DnBController {
 
     class ButtonMultiHostListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        //Do Stuff here
+        Server server = new Server(MultiFrame.getPort());
         }
     } 
 
     class ButtonMultiJoinListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        //Do Stuff here
+        Client client = new Client(MultiFrame.getIP(), MultiFrame.getPort());
         System.out.println("Joined!");
         }
     } 

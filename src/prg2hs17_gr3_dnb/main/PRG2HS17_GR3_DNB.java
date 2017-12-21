@@ -23,9 +23,7 @@ public class PRG2HS17_GR3_DNB {
     public static void main(String[] args) {
         // TODO code application logic here
         controller = new DnBController();
-        controller.printMap();
-        
-        
+        controller.printMap();  
     }
     
 }
