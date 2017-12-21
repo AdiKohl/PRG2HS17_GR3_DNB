@@ -17,17 +17,17 @@ import java.net.*;
 public class Client{
     public Client (int port, String host){
         try{
-            BufferedReader keyStream = new BufferedReader(new InputStreamReader(System.in));
+            //BufferedReader keyStream = new BufferedReader(new InputStreamReader(System.in));
             Socket client = new Socket(host,port);
             PrintWriter outStream = new PrintWriter(client.getOutputStream());
             BufferedReader inStream = new BufferedReader(new InputStreamReader(client.getInputStream()));
-            String line = inStream.readLine();
-            System.out.println(line);
-            line = keyStream.readLine();
-            outStream.println(line);
-            outStream.flush();
-            line = inStream.readLine();
-            System.out.println(line);
+            //String line = inStream.readLine();
+            //System.out.println(line);
+            //line = keyStream.readLine();
+            //outStream.println(line);
+            //outStream.flush();
+            //line = inStream.readLine();
+            //System.out.println(line);
         }catch(IOException e){
             e.printStackTrace();}      
     }
