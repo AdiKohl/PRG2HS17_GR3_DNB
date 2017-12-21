@@ -13,15 +13,18 @@ import java.io.*;
  * @author PETERZ
  */
 public class Server{
+    private ServerSocket s;
+    private PrintWriter outStream;
+    private BufferedReader inStream;
 
     public Server(int port){
         try{
-            ServerSocket s = new ServerSocket(port);
+            s = new ServerSocket(port);
             System.out.println("Warten auf Verbindung ...");
             Socket client = s.accept();
             System.out.println(client + " akzeptiert...");
-            PrintWriter outStream = new PrintWriter(client.getOutputStream());
-            BufferedReader inStream = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            outStream = new PrintWriter(client.getOutputStream());
+            inStream = new BufferedReader(new InputStreamReader(client.getInputStream()));
         }catch(IOException e){
             e.printStackTrace();
         }
