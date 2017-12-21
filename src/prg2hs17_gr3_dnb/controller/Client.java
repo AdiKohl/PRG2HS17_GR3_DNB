@@ -15,12 +15,18 @@ import java.net.*;
  * @author PETERZ
  */
 public class Client{
+    
+    private Socket client;
+    private PrintWriter outStream;
+    private BufferedReader inStream;
+    
+    
     public Client (int port, String host){
         try{
             //BufferedReader keyStream = new BufferedReader(new InputStreamReader(System.in));
-            Socket client = new Socket(host,port);
-            PrintWriter outStream = new PrintWriter(client.getOutputStream());
-            BufferedReader inStream = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            client = new Socket(host,port);
+            outStream = new PrintWriter(client.getOutputStream());
+            inStream = new BufferedReader(new InputStreamReader(client.getInputStream()));
             //String line = inStream.readLine();
             //System.out.println(line);
             //line = keyStream.readLine();
