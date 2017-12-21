@@ -34,6 +34,8 @@ public class DnBController {
     private int bor;
     private Owner playerPlaying;
     private boolean areaSet = false;
+    Client client;
+    Server server;
     
 
     public DnBController() {
@@ -276,13 +278,13 @@ public class DnBController {
 
     class ButtonMultiHostListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        Server server = new Server(menu.getMultiFrame().getPort());
+        server = new Server(menu.getMultiFrame().getPort());
         }
     } 
 
     class ButtonMultiJoinListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        Client client = new Client(menu.getMultiFrame().getPort(), menu.getMultiFrame().getIP());
+        client = new Client(menu.getMultiFrame().getPort(), menu.getMultiFrame().getIP());
         System.out.println("Joined!");
         }
     } 
