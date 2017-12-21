@@ -279,7 +279,6 @@ public class DnBController {
     class ButtonMultiHostListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         server = new Server(menu.getMultiFrame().getPort());
-        System.out.println("Client connected");
         }
     } 
 
